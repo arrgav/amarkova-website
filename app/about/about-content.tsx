@@ -8,7 +8,7 @@ import GlassCard from '@/components/glass-card'
 import Counter from '@/components/counter'
 
 const stats = [
-  { icon: Clock, value: 919, suffix: '+', label: 'часов приёма в 2024' },
+  { icon: Clock, value: 919, suffix: '+', label: 'часов приёма в 2025' },
   { icon: Users, value: 136, suffix: '', label: 'часов обучения студентов' },
   { icon: Heart, value: 1000, suffix: '+', label: 'счастливых улыбок' },
   { icon: Award, value: 5, suffix: '+', label: 'брендов-партнёров' },
@@ -44,15 +44,16 @@ export default function AboutContent() {
             <AnimatedSection delay={0.2}>
               <div className="space-y-6">
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Привет! Я Анастасия Маркова — врач-ортодонт с <span className="font-semibold text-violet-600">10+ летним опытом</span>, 
-                  преподаватель кафедры ортодонтии РУДН и спикер ведущих стоматологических брендов.
+                  Привет! Я Анастасия Маркова — врач-ортодонт с <span className="font-semibold text-violet-600">10+ летним опытом</span>,
+                  преподаватель кафедры ортодонтии РУДН, спикер и амбассадор ведущих стоматологических брендов.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Моя миссия — не просто исправлять прикус, а дарить людям уверенность через красивую улыбку. 
-                  А ещё — делиться знаниями с коллегами и студентами, развивать профессию и вдохновлять.
+                  Моя миссия — не просто исправлять прикус, а дарить людям уверенность через красивую улыбку.
+                  Являюсь наставником для специалистов, которые только начинают свой путь в работе с элайнерами.
+                  Делюсь знаниями с коллегами и студентами, развиваю профессию и вдохновляю.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Вне клиники я играю в большой теннис, веду подкаст о стоматологии и жизни, 
+                  Вне клиники я <span className="font-semibold text-violet-600">выступаю со StandUp</span>, играю в большой теннис, веду подкаст о стоматологии и жизни,
                   выступаю на конференциях и просто люблю жизнь во всех её проявлениях.
                 </p>
               </div>
@@ -109,7 +110,7 @@ export default function AboutContent() {
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Большой теннис</h3>
                   <p className="text-gray-600">
-                    Активный образ жизни помогает сохранять энергию и ясность мышления. 
+                    Активный образ жизни помогает сохранять энергию и ясность мышления.
                     Теннис — мой способ перезагрузки и поддержания формы.
                   </p>
                 </div>
@@ -124,7 +125,7 @@ export default function AboutContent() {
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Путешествия</h3>
                   <p className="text-gray-600">
-                    Познаю мир и вдохновляюсь новыми культурами. Каждое путешествие — 
+                    Познаю мир и вдохновляюсь новыми культурами. Каждое путешествие —
                     это новый взгляд на жизнь и профессию.
                   </p>
                 </div>

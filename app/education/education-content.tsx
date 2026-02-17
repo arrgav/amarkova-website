@@ -20,11 +20,10 @@ const speakerFormats = [
 ]
 
 const partners = [
-  { name: 'EuroKappa', color: '#1e40af' },
-  { name: 'Ormco', color: '#059669' },
-  { name: '3M', color: '#dc2626' },
-  { name: 'Invisalign', color: '#7c3aed' },
-  { name: 'Star Smile', color: '#0891b2' },
+  { name: 'American Orthodontics', logo: '/partners/american-orthodontics.png', width: 200, height: 80 },
+  { name: 'EuroKappa', logo: '/partners/eurokappa.png', width: 160, height: 60 },
+  { name: 'Andrews Brackets', logo: '/partners/andrews-brackets.png', width: 180, height: 70 },
+  { name: 'Orthoplus', logo: '/partners/orthoplus.png', width: 180, height: 70 },
 ]
 
 export default function EducationContent() {
@@ -59,12 +58,12 @@ export default function EducationContent() {
                 Преподаватель <span className="gradient-text">РУДН</span>
               </h2>
               <p className="text-lg text-gray-700 mb-6">
-                <span className="font-semibold text-violet-600">136 часов</span> со студентами в 2024 году. 
+                <span className="font-semibold text-violet-600">136 часов</span> со студентами в 2025 году.
                 Учила — и училась сама.
               </p>
               <p className="text-gray-600 mb-8">
-                Преподаю на кафедре стоматологии детского возраста и ортодонтии Российского университета дружбы народов. 
-                Верю, что качественное образование — основа развития профессии.
+                Преподаю на кафедре стоматологии детского возраста и ортодонтии Российского университета дружбы народов.
+                <span className="font-semibold text-violet-600"> Веду занятия на английском языке (свободно владею English).</span> Верю, что качественное образование — основа развития профессии.
               </p>
               <div className="space-y-3">
                 {teachingTopics.map((topic, index) => (
@@ -90,7 +89,7 @@ export default function EducationContent() {
                   <li>• Современные методы ортодонтического лечения</li>
                   <li>• Работа с брекет-системами и элайнерами</li>
                   <li>• Диагностика и планирование лечения</li>
-                  <li>• Комплексный подход к сложным случаям</li>
+                  <li>• Наставничество для начинающих специалистов</li>
                 </ul>
               </GlassCard>
             </AnimatedSection>
@@ -106,25 +105,25 @@ export default function EducationContent() {
               Спикер и представитель <span className="gradient-text">брендов</span>
             </h2>
             <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-              Являюсь официальным спикером и амбассадором ведущих ортодонтических брендов. 
+              Являюсь официальным спикером и амбассадором ведущих ортодонтических брендов.
               Провожу обучающие мероприятия для врачей по всей России.
             </p>
           </AnimatedSection>
 
           {/* Partners */}
           <AnimatedSection delay={0.1}>
-            <div className="flex flex-wrap justify-center gap-6 mb-16">
+            <div className="flex flex-wrap items-center justify-center gap-12 mb-16">
               {partners.map((partner) => (
                 <div
                   key={partner.name}
-                  className="glass-card px-8 py-4 rounded-xl"
+                  className="relative grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                  style={{ width: partner.width, height: partner.height }}
                 >
-                  <span 
-                    className="text-xl font-bold"
-                    style={{ color: partner.color }}
-                  >
-                    {partner.name}
-                  </span>
+                  <img // Using img tag for simplicity with external content or just ease, but Next/Image is better. Let's use simple img first as I added imports? No I didn't add Image to imports in this call. Wait.
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="object-contain w-full h-full"
+                  />
                 </div>
               ))}
             </div>

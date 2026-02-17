@@ -17,8 +17,8 @@ const directions = [
   },
   {
     icon: Mic,
-    title: 'Спикер и амбассадор',
-    desc: 'Представляю ведущие ортодонтические бренды. Провожу мастер-классы и вебинары для врачей.',
+    title: 'Амбассадор',
+    desc: 'Представляю ведущий ортодонтический бренд. Провожу мастер-классы и вебинары для врачей.',
     link: '/education',
     cta: 'Пригласить на мероприятие',
   },
@@ -45,7 +45,7 @@ export default function HomePage() {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-violet-50" />
-        
+
         {/* Decorative blurs */}
         <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-violet-200 rounded-full blur-[120px] opacity-30" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange-200 rounded-full blur-[100px] opacity-30" />
@@ -70,13 +70,17 @@ export default function HomePage() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/services"
+                href="https://t.me/ortho_amarkova"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="glass-button px-8 py-4 rounded-full text-lg font-medium inline-flex items-center justify-center gap-2"
               >
                 Для пациентов <ArrowRight size={20} />
               </Link>
               <Link
-                href="/education"
+                href="https://t.me/drmarkovaa"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="glass-button-outline px-8 py-4 rounded-full text-lg font-medium inline-flex items-center justify-center gap-2"
               >
                 Для коллег <ArrowRight size={20} />
