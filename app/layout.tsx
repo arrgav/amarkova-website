@@ -7,6 +7,7 @@ import CookieConsent from '@/components/cookie-consent'
 import Preloader from '@/components/ui/preloader'
 import StarfieldCanvas from '@/components/ui/starfield-canvas'
 import SmoothScrollProvider from '@/components/ui/smooth-scroll-provider'
+import JsonLd from '@/components/json-ld'
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'], variable: '--font-inter' })
 const playfair = Playfair_Display({ subsets: ['latin', 'cyrillic'], variable: '--font-playfair' })
@@ -29,6 +30,9 @@ export const metadata: Metadata = {
     images: ['/og-image.png'],
     type: 'website',
   },
+  alternates: {
+    canonical: 'https://amarkova.ru',
+  },
 }
 
 export default function RootLayout({
@@ -44,6 +48,7 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased selection:bg-violet-200 selection:text-violet-900`}>
         <SmoothScrollProvider>
           <Preloader />
+          <JsonLd />
           <StarfieldCanvas />
           <Header />
           <main className="relative z-10">{children}</main>
