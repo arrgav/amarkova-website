@@ -1,7 +1,7 @@
 'use client'
 
 import { Send, Mail, Youtube, MessageCircle, ArrowRight } from 'lucide-react'
-import AnimatedSection from '@/components/animated-section'
+import ScrollReveal from '@/components/ui/scroll-reveal'
 import GlassCard from '@/components/glass-card'
 
 const contacts = [
@@ -40,27 +40,26 @@ export default function ContactsContent() {
     <div className="min-h-screen pt-24">
       {/* Hero */}
       <section className="relative py-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-white to-orange-50" />
-        <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-violet-200 rounded-full blur-[100px] opacity-30" />
+        {/* Decorative elements handled by OrganicBackground */}
 
         <div className="relative max-w-[1200px] mx-auto px-4 text-center">
-          <AnimatedSection>
+          <ScrollReveal width="100%">
             <h1 className="text-4xl sm:text-5xl font-bold mb-4">
               Связаться <span className="gradient-text">со мной</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Для записи на консультацию, приглашения на мероприятие или сотрудничества
             </p>
-          </AnimatedSection>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Contacts Grid */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white/30 backdrop-blur-sm">
         <div className="max-w-[1200px] mx-auto px-4">
           <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {contacts.map((contact, index) => (
-              <AnimatedSection key={contact.title} delay={index * 0.1}>
+              <ScrollReveal key={contact.title} delay={index * 0.1}>
                 <a
                   href={contact.href}
                   target="_blank"
@@ -80,7 +79,7 @@ export default function ContactsContent() {
                     </div>
                   </GlassCard>
                 </a>
-              </AnimatedSection>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -89,7 +88,7 @@ export default function ContactsContent() {
       {/* CTA */}
       <section className="py-20">
         <div className="max-w-[1200px] mx-auto px-4">
-          <AnimatedSection>
+          <ScrollReveal>
             <GlassCard className="max-w-2xl mx-auto p-8 text-center">
               <h2 className="text-2xl font-bold mb-4">
                 Самый быстрый способ связаться
@@ -106,7 +105,7 @@ export default function ContactsContent() {
                 <Send size={20} /> Написать в Telegram <ArrowRight size={20} />
               </a>
             </GlassCard>
-          </AnimatedSection>
+          </ScrollReveal>
         </div>
       </section>
     </div>

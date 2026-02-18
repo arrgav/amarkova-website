@@ -9,7 +9,12 @@ export default function Footer() {
       <div className="max-w-[1200px] mx-auto px-4 py-12">
         <div className="grid md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-semibold gradient-text mb-3">Анастасия Маркова</h3>
+            <div className="flex items-center gap-2 mb-4">
+              <div className="relative w-10 h-10">
+                <img src="/logo.png" alt="AM Logo" className="object-contain w-full h-full" />
+              </div>
+              <span className="text-xl font-bold gradient-text">Anastasia Markova</span>
+            </div>
             <p className="text-gray-600 text-sm">
               Врач-ортодонт · Спикер · Преподаватель РУДН
             </p>
@@ -61,7 +66,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-500 text-sm">
-          © 2024 Анастасия Маркова. Все права защищены.
+          © 2025 Анастасия Маркова. Все права защищены.
         </div>
       </div>
     </footer>

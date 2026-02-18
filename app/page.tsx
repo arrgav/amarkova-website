@@ -2,9 +2,8 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { ArrowRight, Users, GraduationCap, Mic, Stethoscope } from 'lucide-react'
-import AnimatedSection from '@/components/animated-section'
+import ScrollReveal from '@/components/ui/scroll-reveal'
 import GlassCard from '@/components/glass-card'
 
 const directions = [
@@ -41,22 +40,12 @@ const directions = [
 export default function HomePage() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-violet-50" />
-
-        {/* Decorative blurs */}
-        <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-violet-200 rounded-full blur-[120px] opacity-30" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange-200 rounded-full blur-[100px] opacity-30" />
+        {/* Decorative elements are now handled by OrganicBackground in layout */}
 
         <div className="relative max-w-[1200px] mx-auto px-4 pt-24 pb-16 grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <ScrollReveal variant="slide-in-right" className="z-10">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
               <span className="gradient-text">Анастасия Маркова</span>
             </h1>
@@ -86,15 +75,10 @@ export default function HomePage() {
                 Для коллег <ArrowRight size={20} />
               </Link>
             </div>
-          </motion.div>
+          </ScrollReveal>
 
           {/* Hero Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
-          >
+          <ScrollReveal variant="scale" delay={0.4} className="relative z-10">
             <div className="relative aspect-[3/4] max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl">
               <Image
                 src="/hero-photo.jpg"
@@ -109,25 +93,25 @@ export default function HomePage() {
               <p className="text-3xl font-bold gradient-text">10+</p>
               <p className="text-sm text-gray-600">лет опыта</p>
             </div>
-          </motion.div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Directions Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white/30 backdrop-blur-sm">
         <div className="max-w-[1200px] mx-auto px-4">
-          <AnimatedSection>
+          <ScrollReveal width="100%" className="mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
               Чем я <span className="gradient-text">занимаюсь</span>
             </h2>
-            <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            <p className="text-gray-600 text-center max-w-2xl mx-auto">
               Объединяю медицинскую практику и образовательную деятельность для развития профессии
             </p>
-          </AnimatedSection>
+          </ScrollReveal>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {directions.map((item, index) => (
-              <AnimatedSection key={item.title} delay={index * 0.1}>
+              <ScrollReveal key={item.title} delay={index * 0.1} variant="fade-up" className="h-full">
                 <GlassCard className="h-full flex flex-col">
                   <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4">
                     <item.icon className="text-white" size={24} />
@@ -141,17 +125,68 @@ export default function HomePage() {
                     {item.cta} <ArrowRight size={16} />
                   </Link>
                 </GlassCard>
-              </AnimatedSection>
+              </ScrollReveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Lifestyle Section */}
+      <section className="py-20 bg-white/30 backdrop-blur-sm">
+        <div className="max-w-[1200px] mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <ScrollReveal variant="slide-in-right">
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl mb-6 transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                <Image
+                  src="/standup.jpg" // Placeholder
+                  alt="Standup & Lifestyle"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                  <p className="text-white font-bold text-xl">Стендап & Теннис 🎾🎤</p>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal>
+              <h2 className="text-3xl font-bold mb-6">
+                Не только <span className="gradient-text">ортодонтия</span>
+              </h2>
+              <p className="text-lg text-gray-700 mb-6">
+                Верю, что врач должен быть разносторонней личностью.
+                Мои увлечения помогают мне сохранять баланс и заряжать энергией своих пациентов.
+              </p>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-violet-100 flex items-center justify-center text-violet-600">
+                    <Mic size={20} />
+                  </div>
+                  <p className="text-gray-600"><span className="font-semibold text-gray-900">Стендап:</span> Юмор помогает находить общий язык с кем угодно.</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600">
+                    <div className="w-5 h-5 rounded-full border-2 border-current" />
+                  </div>
+                  <p className="text-gray-600"><span className="font-semibold text-gray-900">Теннис:</span> Спорт учит фокусироваться на цели и побеждать.</p>
+                </div>
+              </div>
+              <Link
+                href="/blog"
+                className="glass-button px-8 py-3 rounded-full text-lg font-medium inline-flex items-center gap-2"
+              >
+                Мой лайфстайл блог <ArrowRight size={20} />
+              </Link>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 gradient-bg opacity-10" />
-        <div className="max-w-[1200px] mx-auto px-4 text-center relative">
-          <AnimatedSection>
+        {/* Removed static gradient opacity layer to show organic background */}
+        <div className="max-w-[1200px] mx-auto px-4 text-center relative z-10">
+          <ScrollReveal variant="scale">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">
               Готовы начать путь к <span className="gradient-text">идеальной улыбке</span>?
             </h2>
@@ -166,7 +201,7 @@ export default function HomePage() {
             >
               Связаться в Telegram <ArrowRight size={20} />
             </a>
-          </AnimatedSection>
+          </ScrollReveal>
         </div>
       </section>
     </div>

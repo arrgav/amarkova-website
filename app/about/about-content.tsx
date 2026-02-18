@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Heart, Award, Users, Clock, Plane, Trophy } from 'lucide-react'
-import AnimatedSection from '@/components/animated-section'
+import ScrollReveal from '@/components/ui/scroll-reveal'
 import GlassCard from '@/components/glass-card'
 import Counter from '@/components/counter'
 
@@ -19,18 +19,17 @@ export default function AboutContent() {
     <div className="min-h-screen pt-24">
       {/* Hero */}
       <section className="relative py-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-white to-orange-50" />
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-violet-200 rounded-full blur-[100px] opacity-30" />
+        {/* Decorative elements handled by OrganicBackground */}
 
         <div className="relative max-w-[1200px] mx-auto px-4">
-          <AnimatedSection>
+          <ScrollReveal width="100%">
             <h1 className="text-4xl sm:text-5xl font-bold text-center mb-4">
               Больше, чем <span className="gradient-text">ортодонт</span>
             </h1>
-          </AnimatedSection>
+          </ScrollReveal>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mt-12">
-            <AnimatedSection delay={0.1}>
+            <ScrollReveal delay={0.1} variant="scale">
               <div className="relative aspect-square max-w-md mx-auto rounded-3xl overflow-hidden shadow-xl">
                 <Image
                   src="/hero-photo.jpg"
@@ -39,9 +38,9 @@ export default function AboutContent() {
                   className="object-cover"
                 />
               </div>
-            </AnimatedSection>
+            </ScrollReveal>
 
-            <AnimatedSection delay={0.2}>
+            <ScrollReveal delay={0.2} variant="slide-in-right">
               <div className="space-y-6">
                 <p className="text-lg text-gray-700 leading-relaxed">
                   Привет! Я Анастасия Маркова — врач-ортодонт с <span className="font-semibold text-violet-600">10+ летним опытом</span>,
@@ -57,24 +56,24 @@ export default function AboutContent() {
                   выступаю на конференциях и просто люблю жизнь во всех её проявлениях.
                 </p>
               </div>
-            </AnimatedSection>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
       {/* Stats */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white/30 backdrop-blur-sm">
         <div className="max-w-[1200px] mx-auto px-4">
-          <AnimatedSection>
+          <ScrollReveal width="100%">
             <h2 className="text-3xl font-bold text-center mb-12">
               В <span className="gradient-text">цифрах</span>
             </h2>
-          </AnimatedSection>
+          </ScrollReveal>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
-              <AnimatedSection key={stat.label} delay={index * 0.1}>
-                <GlassCard className="text-center">
+              <ScrollReveal key={stat.label} delay={index * 0.1} variant="fade-up" className="h-full">
+                <GlassCard className="text-center h-full flex flex-col justify-center">
                   <div className="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center mx-auto mb-4">
                     <stat.icon className="text-white" size={28} />
                   </div>
@@ -83,7 +82,7 @@ export default function AboutContent() {
                   </p>
                   <p className="text-gray-600">{stat.label}</p>
                 </GlassCard>
-              </AnimatedSection>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -92,18 +91,18 @@ export default function AboutContent() {
       {/* Lifestyle */}
       <section className="py-20">
         <div className="max-w-[1200px] mx-auto px-4">
-          <AnimatedSection>
+          <ScrollReveal width="100%">
             <h2 className="text-3xl font-bold text-center mb-4">
               Не только <span className="gradient-text">работа</span>
             </h2>
             <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
               Жизнь — это баланс. Верю, что врач, который живёт полной жизнью, лучше понимает своих пациентов.
             </p>
-          </AnimatedSection>
+          </ScrollReveal>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <AnimatedSection delay={0.1}>
-              <GlassCard className="flex items-start gap-4">
+            <ScrollReveal delay={0.1}>
+              <GlassCard className="flex items-start gap-4 h-full">
                 <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0">
                   <Trophy className="text-white" size={24} />
                 </div>
@@ -115,10 +114,10 @@ export default function AboutContent() {
                   </p>
                 </div>
               </GlassCard>
-            </AnimatedSection>
+            </ScrollReveal>
 
-            <AnimatedSection delay={0.2}>
-              <GlassCard className="flex items-start gap-4">
+            <ScrollReveal delay={0.2}>
+              <GlassCard className="flex items-start gap-4 h-full">
                 <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0">
                   <Plane className="text-white" size={24} />
                 </div>
@@ -130,7 +129,7 @@ export default function AboutContent() {
                   </p>
                 </div>
               </GlassCard>
-            </AnimatedSection>
+            </ScrollReveal>
           </div>
         </div>
       </section>

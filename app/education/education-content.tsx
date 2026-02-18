@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { GraduationCap, Mic2, Users, Video, BookOpen, Award, ArrowRight, Send } from 'lucide-react'
-import AnimatedSection from '@/components/animated-section'
+import ScrollReveal from '@/components/ui/scroll-reveal'
 import GlassCard from '@/components/glass-card'
 
 const teachingTopics = [
@@ -31,26 +31,25 @@ export default function EducationContent() {
     <div className="min-h-screen pt-24">
       {/* Hero */}
       <section className="relative py-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-violet-50" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-orange-200 rounded-full blur-[120px] opacity-30" />
+        {/* Decorative elements handled by OrganicBackground */}
 
         <div className="relative max-w-[1200px] mx-auto px-4 text-center">
-          <AnimatedSection>
+          <ScrollReveal width="100%">
             <h1 className="text-4xl sm:text-5xl font-bold mb-4">
               Обучение и <span className="gradient-text">Спикерство</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Делюсь опытом и знаниями с коллегами. Преподаю в РУДН и выступаю для ведущих ортодонтических брендов.
             </p>
-          </AnimatedSection>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Teaching */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white/30 backdrop-blur-sm">
         <div className="max-w-[1200px] mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <AnimatedSection>
+            <ScrollReveal variant="slide-in-right">
               <div className="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-6">
                 <GraduationCap className="text-white" size={32} />
               </div>
@@ -79,9 +78,9 @@ export default function EducationContent() {
                   </motion.div>
                 ))}
               </div>
-            </AnimatedSection>
+            </ScrollReveal>
 
-            <AnimatedSection delay={0.2}>
+            <ScrollReveal delay={0.2} variant="scale">
               <GlassCard className="p-8">
                 <BookOpen className="text-violet-600 mb-4" size={40} />
                 <h3 className="text-2xl font-bold mb-4">Направления обучения</h3>
@@ -92,7 +91,7 @@ export default function EducationContent() {
                   <li>• Наставничество для начинающих специалистов</li>
                 </ul>
               </GlassCard>
-            </AnimatedSection>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -100,7 +99,7 @@ export default function EducationContent() {
       {/* Speaker */}
       <section className="py-20">
         <div className="max-w-[1200px] mx-auto px-4">
-          <AnimatedSection>
+          <ScrollReveal width="100%">
             <h2 className="text-3xl font-bold text-center mb-4">
               Спикер и представитель <span className="gradient-text">брендов</span>
             </h2>
@@ -108,10 +107,10 @@ export default function EducationContent() {
               Являюсь официальным спикером и амбассадором ведущих ортодонтических брендов.
               Провожу обучающие мероприятия для врачей по всей России.
             </p>
-          </AnimatedSection>
+          </ScrollReveal>
 
           {/* Partners */}
-          <AnimatedSection delay={0.1}>
+          <ScrollReveal delay={0.1}>
             <div className="flex flex-wrap items-center justify-center gap-12 mb-16">
               {partners.map((partner) => (
                 <div
@@ -119,7 +118,7 @@ export default function EducationContent() {
                   className="relative grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
                   style={{ width: partner.width, height: partner.height }}
                 >
-                  <img // Using img tag for simplicity with external content or just ease, but Next/Image is better. Let's use simple img first as I added imports? No I didn't add Image to imports in this call. Wait.
+                  <img
                     src={partner.logo}
                     alt={partner.name}
                     className="object-contain w-full h-full"
@@ -127,19 +126,19 @@ export default function EducationContent() {
                 </div>
               ))}
             </div>
-          </AnimatedSection>
+          </ScrollReveal>
 
           {/* Formats */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {speakerFormats.map((format, index) => (
-              <AnimatedSection key={format.title} delay={index * 0.1}>
-                <GlassCard className="text-center">
+              <ScrollReveal key={format.title} delay={index * 0.1} variant="fade-up" className="h-full">
+                <GlassCard className="text-center h-full flex flex-col justify-center">
                   <div className="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center mx-auto mb-4">
                     <format.icon className="text-white" size={28} />
                   </div>
                   <h3 className="font-semibold text-gray-800">{format.title}</h3>
                 </GlassCard>
-              </AnimatedSection>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -148,7 +147,7 @@ export default function EducationContent() {
       {/* CTA */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-[1200px] mx-auto px-4 text-center">
-          <AnimatedSection>
+          <ScrollReveal>
             <h2 className="text-3xl font-bold mb-6">
               Хотите пригласить меня как <span className="gradient-text">спикера</span>?
             </h2>
@@ -163,7 +162,7 @@ export default function EducationContent() {
             >
               <Send size={20} /> Написать в Telegram
             </a>
-          </AnimatedSection>
+          </ScrollReveal>
         </div>
       </section>
     </div>

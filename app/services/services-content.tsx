@@ -1,82 +1,193 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { Stethoscope, Sparkles, Baby, Users2, ArrowRight, CheckCircle2, Send } from 'lucide-react'
-import AnimatedSection from '@/components/animated-section'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Stethoscope, Sparkles, Baby, Users2, ArrowRight, CheckCircle2, Send, GraduationCap, Mic2, Presentation } from 'lucide-react'
+import ScrollReveal from '@/components/ui/scroll-reveal'
 import GlassCard from '@/components/glass-card'
+import Link from 'next/link'
 
-const services = [
+const patientServices = [
   {
     icon: Stethoscope,
     title: 'Консультация ортодонта',
-    desc: 'Диагностика, план лечения, ответы на все вопросы',
+    desc: 'Первичная диагностика, составление плана лечения, фотопротокол',
   },
   {
     icon: Sparkles,
     title: 'Брекет-системы',
-    desc: 'Металлические, керамические, сапфировые, лингвальные',
+    desc: 'Лечение на металлических, керамических и сапфировых брекетах',
   },
   {
     icon: Sparkles,
     title: 'Элайнеры',
-    desc: 'Invisalign, Star Smile и другие системы прозрачных капп',
+    desc: 'Исправление прикуса прозрачными каппами (Invisalign, EuroKappa)',
   },
   {
     icon: Baby,
     title: 'Детская ортодонтия',
-    desc: 'Раннее лечение, пластинки, трейнеры',
+    desc: 'Лечение детей: пластинки, трейнеры, частичные брекет-системы',
+  },
+]
+
+const doctorServices = [
+  {
+    icon: GraduationCap,
+    title: 'Обучение и курсы',
+    desc: 'Авторские курсы по ортодонтии, мастер-классы и вебинары',
+    link: '/education'
   },
   {
-    icon: Users2,
-    title: 'Комплексное лечение',
-    desc: 'Совместная работа с хирургами, имплантологами, терапевтами',
+    icon: Mic2,
+    title: 'Спикерство',
+    desc: 'Выступления на конференциях и конгрессах',
+    link: '/education'
+  },
+  {
+    icon: Presentation,
+    title: 'Наставничество',
+    desc: 'Индивдуальный разбор клинических случаев (Mentoring)',
+    link: '/education'
   },
 ]
 
 const benefits = [
-  '10+ лет опыта в ортодонтии',
-  'Индивидуальный подход к каждому',
-  'Современные методики и материалы',
-  'Прозрачное ценообразование',
-  'Комфортная атмосфера приёма',
+  '10+ лет клинического опыта',
+  'Преподаватель кафедры РУДН',
+  'Спикер международных конгрессов',
+  'Комплексный подход к лечению',
+  'Современное цифровое оборудование',
 ]
 
 export default function ServicesContent() {
+  const [activeTab, setActiveTab] = useState<'patients' | 'doctors'>('patients')
+
   return (
     <div className="min-h-screen pt-24">
       {/* Hero */}
       <section className="relative py-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-white to-orange-50" />
-        <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-violet-200 rounded-full blur-[100px] opacity-30" />
-
         <div className="relative max-w-[1200px] mx-auto px-4 text-center">
-          <AnimatedSection>
+          <ScrollReveal width="100%">
             <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-              Ортодонтическое <span className="gradient-text">лечение</span>
+              Услуги и <span className="gradient-text">Направления</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Современные методы для идеальной улыбки. Исправление прикуса у детей и взрослых.
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+              Выбирайте направление, которое вас интересует
             </p>
-          </AnimatedSection>
+
+            {/* Tabs */}
+            <div className="flex justify-center mb-8">
+              <div className="bg-white/50 backdrop-blur-md p-1 rounded-full border border-gray-200 inline-flex">
+                <button
+                  onClick={() => setActiveTab('patients')}
+                  className={`px-8 py-3 rounded-full text-lg font-medium transition-all duration-300 ${activeTab === 'patients'
+                      ? 'bg-violet-600 text-white shadow-lg'
+                      : 'text-gray-600 hover:text-violet-600'
+                    }`}
+                >
+                  Пациентам
+                </button>
+                <button
+                  onClick={() => setActiveTab('doctors')}
+                  className={`px-8 py-3 rounded-full text-lg font-medium transition-all duration-300 ${activeTab === 'doctors'
+                      ? 'bg-violet-600 text-white shadow-lg'
+                      : 'text-gray-600 hover:text-violet-600'
+                    }`}
+                >
+                  Врачам
+                </button>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20 bg-gray-50">
+      {/* Content */}
+      <section className="py-12 bg-white/30 backdrop-blur-sm min-h-[400px]">
         <div className="max-w-[1200px] mx-auto px-4">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <AnimatedSection key={service.title} delay={index * 0.1}>
-                <GlassCard className="h-full">
-                  <div className="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center mb-4">
-                    <service.icon className="text-white" size={28} />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                  <p className="text-gray-600">{service.desc}</p>
-                </GlassCard>
-              </AnimatedSection>
-            ))}
-          </div>
+          <AnimatePresence mode="wait">
+            {activeTab === 'patients' ? (
+              <motion.div
+                key="patients"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                  {patientServices.map((service, index) => (
+                    <ScrollReveal key={service.title} delay={index * 0.1} className="h-full">
+                      <GlassCard className="h-full">
+                        <div className="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center mb-4">
+                          <service.icon className="text-white" size={28} />
+                        </div>
+                        <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                        <p className="text-gray-600">{service.desc}</p>
+                      </GlassCard>
+                    </ScrollReveal>
+                  ))}
+                </div>
+
+                {/* Patient CTA */}
+                <div className="text-center">
+                  <ScrollReveal variant="scale">
+                    <h2 className="text-2xl font-bold mb-4">Запишитесь на прием</h2>
+                    <a
+                      href="https://t.me/ortho_amarkova"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="glass-button px-8 py-4 rounded-full text-lg font-medium inline-flex items-center gap-2"
+                    >
+                      <Send size={20} /> Записаться в Telegram
+                    </a>
+                  </ScrollReveal>
+                </div>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="doctors"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="grid sm:grid-cols-3 gap-8 mb-16">
+                  {doctorServices.map((service, index) => (
+                    <ScrollReveal key={service.title} delay={index * 0.1} className="h-full">
+                      <GlassCard className="h-full flex flex-col">
+                        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mb-4">
+                          <service.icon className="text-white" size={28} />
+                        </div>
+                        <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                        <p className="text-gray-600 mb-6 flex-grow">{service.desc}</p>
+                        <Link
+                          href={service.link}
+                          className="text-violet-600 font-medium inline-flex items-center gap-2 hover:gap-3 transition-all"
+                        >
+                          Подробнее <ArrowRight size={16} />
+                        </Link>
+                      </GlassCard>
+                    </ScrollReveal>
+                  ))}
+                </div>
+
+                {/* Doctor CTA */}
+                <div className="text-center">
+                  <ScrollReveal variant="scale">
+                    <h2 className="text-2xl font-bold mb-4">Сотрудничество и обучение</h2>
+                    <a
+                      href="https://t.me/drmarkovaa"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="glass-button-outline px-8 py-4 rounded-full text-lg font-medium inline-flex items-center gap-2"
+                    >
+                      <Send size={20} /> Написать лично
+                    </a>
+                  </ScrollReveal>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
@@ -84,9 +195,9 @@ export default function ServicesContent() {
       <section className="py-20">
         <div className="max-w-[1200px] mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <AnimatedSection>
+            <ScrollReveal variant="slide-in-right">
               <h2 className="text-3xl font-bold mb-6">
-                Почему выбирают <span className="gradient-text">меня</span>
+                Почему мне <span className="gradient-text">доверяют</span>
               </h2>
               <div className="space-y-4">
                 {benefits.map((benefit, index) => (
@@ -102,24 +213,17 @@ export default function ServicesContent() {
                   </motion.div>
                 ))}
               </div>
-            </AnimatedSection>
+            </ScrollReveal>
 
-            <AnimatedSection delay={0.2}>
-              <GlassCard className="p-8 text-center">
-                <h3 className="text-2xl font-bold mb-4">Готовы к красивой улыбке?</h3>
+            <ScrollReveal delay={0.2} variant="scale">
+              {/* Use the same glass card content or updated contextually */}
+              <GlassCard className="p-8 text-center bg-gradient-to-br from-white to-violet-50">
+                <h3 className="text-2xl font-bold mb-4">Качество и Результат</h3>
                 <p className="text-gray-600 mb-6">
-                  Запишитесь на консультацию, чтобы узнать оптимальный план лечения именно для вас
+                  Моя цель — не просто исправить прикус, а улучшить качество жизни моих пациентов и уровень знаний моих студентов.
                 </p>
-                <a
-                  href="https://t.me/drmarkovaa"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="glass-button px-8 py-4 rounded-full text-lg font-medium inline-flex items-center gap-2 w-full justify-center"
-                >
-                  <Send size={20} /> Записаться на консультацию
-                </a>
               </GlassCard>
-            </AnimatedSection>
+            </ScrollReveal>
           </div>
         </div>
       </section>

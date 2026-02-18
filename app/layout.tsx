@@ -3,6 +3,9 @@ import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
+import CookieConsent from '@/components/cookie-consent'
+import Preloader from '@/components/ui/preloader'
+import OrganicBackground from '@/components/ui/organic-background'
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'], variable: '--font-inter' })
 const playfair = Playfair_Display({ subsets: ['latin', 'cyrillic'], variable: '--font-playfair' })
@@ -15,8 +18,9 @@ export const metadata: Metadata = {
   description: 'Анастасия Маркова — ортодонт с 10+ лет опыта, спикер ведущих брендов, преподаватель РУДН. Запись на консультацию в Москве. Подкаст, выступления, обучение.',
   keywords: 'ортодонт Москва, Анастасия Маркова, врач ортодонт, брекеты Москва, элайнеры, исправление прикуса, спикер стоматология, преподаватель ортодонтия',
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png', // Added apple touch icon for better mobile support
   },
   openGraph: {
     title: 'Анастасия Маркова — врач-ортодонт, спикер, преподаватель РУДН',
@@ -36,10 +40,13 @@ export default function RootLayout({
       <head>
         <script src="https://apps.abacus.ai/chatllm/appllm-lib.js"></script>
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased selection:bg-violet-200 selection:text-violet-900`}>
+        <Preloader />
+        <OrganicBackground />
         <Header />
-        <main>{children}</main>
+        <main className="relative z-10">{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   )

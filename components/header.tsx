@@ -11,6 +11,8 @@ const navLinks = [
   { href: '/about', label: 'Обо мне' },
   { href: '/education', label: 'Обучение' },
   { href: '/services', label: 'Услуги' },
+  { href: '/services', label: 'Услуги' },
+  { href: '/blog', label: 'Блог' },
   { href: '/podcast', label: 'Подкаст' },
   { href: '/contacts', label: 'Контакты' },
 ]
