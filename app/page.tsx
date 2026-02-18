@@ -142,10 +142,16 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal variant="slide-in-right" width="100%">
-              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl mb-6 transform rotate-2 hover:rotate-0 transition-transform duration-500">
-                <div className="absolute inset-0 bg-gradient-to-br from-violet-400 via-fuchsia-400 to-orange-300" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
-                  <p className="text-white font-bold text-xl">Стендап & Теннис 🎾🎤</p>
+              <div className="relative aspect-[3/2] rounded-2xl overflow-hidden shadow-xl mb-6 transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                <Image
+                  src="/lifestyle-photo.jpg"
+                  alt="Анастасия Маркова - лайфстайл"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-6">
+                  <p className="text-white font-bold text-xl drop-shadow-lg">Стендап & Теннис 🎾🎤</p>
                 </div>
               </div>
             </ScrollReveal>
