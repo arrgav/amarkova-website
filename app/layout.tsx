@@ -5,7 +5,8 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import CookieConsent from '@/components/cookie-consent'
 import Preloader from '@/components/ui/preloader'
-import OrganicBackground from '@/components/ui/organic-background'
+import StarfieldCanvas from '@/components/ui/starfield-canvas'
+import SmoothScrollProvider from '@/components/ui/smooth-scroll-provider'
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'], variable: '--font-inter' })
 const playfair = Playfair_Display({ subsets: ['latin', 'cyrillic'], variable: '--font-playfair' })
@@ -41,12 +42,14 @@ export default function RootLayout({
         <script src="https://apps.abacus.ai/chatllm/appllm-lib.js"></script>
       </head>
       <body className={`${inter.className} antialiased selection:bg-violet-200 selection:text-violet-900`}>
-        <Preloader />
-        <OrganicBackground />
-        <Header />
-        <main className="relative z-10">{children}</main>
-        <Footer />
-        <CookieConsent />
+        <SmoothScrollProvider>
+          <Preloader />
+          <StarfieldCanvas />
+          <Header />
+          <main className="relative z-10">{children}</main>
+          <Footer />
+          <CookieConsent />
+        </SmoothScrollProvider>
       </body>
     </html>
   )

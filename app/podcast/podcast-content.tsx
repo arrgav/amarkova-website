@@ -49,7 +49,7 @@ export default function PodcastContent() {
       </section>
 
       {/* Topics */}
-      <section className="py-20 bg-white/30 backdrop-blur-sm">
+      <section className="py-20 section-light">
         <div className="max-w-[1200px] mx-auto px-4">
           <ScrollReveal width="100%">
             <h2 className="text-3xl font-bold text-center mb-12">

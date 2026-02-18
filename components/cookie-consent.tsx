@@ -33,7 +33,7 @@ export default function CookieConsent() {
                     transition={{ type: 'spring', damping: 20, stiffness: 300 }}
                     className="fixed bottom-4 right-4 z-50 w-[calc(100%-2rem)] max-w-sm sm:bottom-8 sm:right-8"
                 >
-                    <div className="relative overflow-hidden rounded-2xl border border-white/40 bg-white/80 p-6 shadow-2xl backdrop-blur-xl">
+                    <div className="relative overflow-hidden rounded-2xl border border-white/40 bg-white/98 p-6 shadow-2xl">
                         {/* Decorative background */}
                         <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-violet-400/20 blur-2xl" />
                         <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full bg-orange-300/20 blur-2xl" />

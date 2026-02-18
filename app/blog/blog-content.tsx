@@ -67,7 +67,7 @@ export default function BlogContent() {
             </section>
 
             {/* Featured Articles */}
-            <section className="py-12 bg-white/30 backdrop-blur-sm">
+            <section className="py-12 section-light">
                 <div className="max-w-[1200px] mx-auto px-4">
                     <ScrollReveal width="100%" className="mb-8 flex items-center justify-between">
                         <h2 className="text-2xl font-bold flex items-center gap-2">

@@ -55,7 +55,7 @@ export default function ContactsContent() {
       </section>
 
       {/* Contacts Grid */}
-      <section className="py-20 bg-white/30 backdrop-blur-sm">
+      <section className="py-20 section-light">
         <div className="max-w-[1200px] mx-auto px-4">
           <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {contacts.map((contact, index) => (

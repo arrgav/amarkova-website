@@ -77,7 +77,7 @@ export default function ServicesContent() {
 
             {/* Tabs */}
             <div className="flex justify-center mb-8">
-              <div className="bg-white/50 backdrop-blur-md p-1 rounded-full border border-gray-200 inline-flex">
+              <div className="bg-white/95 p-1 rounded-full border border-gray-200 inline-flex">
                 <button
                   onClick={() => setActiveTab('patients')}
                   className={`px-8 py-3 rounded-full text-lg font-medium transition-all duration-300 ${activeTab === 'patients'
@@ -103,7 +103,7 @@ export default function ServicesContent() {
       </section>
 
       {/* Content */}
-      <section className="py-12 bg-white/30 backdrop-blur-sm min-h-[400px]">
+      <section className="py-12 section-light min-h-[400px]">
         <div className="max-w-[1200px] mx-auto px-4">
           <AnimatePresence mode="wait">
             {activeTab === 'patients' ? (
