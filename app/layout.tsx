@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   description: 'Анастасия Маркова — ортодонт с 10+ лет опыта, спикер ведущих брендов, преподаватель РУДН. Запись на консультацию в Москве. Подкаст, выступления, обучение.',
   keywords: 'ортодонт Москва, Анастасия Маркова, врач ортодонт, брекеты Москва, элайнеры, исправление прикуса, спикер стоматология, преподаватель ортодонтия',
   icons: {
-    icon: '/logo.png',
-    shortcut: '/logo.png',
-    apple: '/logo.png', // Added apple touch icon for better mobile support
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
   },
   openGraph: {
     title: 'Анастасия Маркова — врач-ортодонт, спикер, преподаватель РУДН',

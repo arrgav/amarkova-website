@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Send, Mail, Youtube } from 'lucide-react'
 
 export default function Footer() {
@@ -11,7 +12,13 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="relative w-10 h-10">
-                <img src="/logo.png" alt="AM Logo" className="object-contain w-full h-full" />
+                <Image
+                  src="/logo.png"
+                  alt="AM Logo"
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                />
               </div>
               <span className="text-xl font-bold gradient-text">Anastasia Markova</span>
             </div>

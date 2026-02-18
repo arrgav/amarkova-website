@@ -13,12 +13,12 @@ interface ScrollRevealProps {
 
 const variants: Record<string, Variants> = {
     'fade-up': {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 20, filter: 'blur(4px)' },
+        visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
     },
     'fade-in': {
-        hidden: { opacity: 0 },
-        visible: { opacity: 1 },
+        hidden: { opacity: 0, filter: 'blur(4px)' },
+        visible: { opacity: 1, filter: 'blur(0px)' },
     },
     'slide-in-right': {
         hidden: { opacity: 0, x: -20 },
@@ -45,7 +45,7 @@ export default function ScrollReveal({
     const isInView = useInView(ref, { once: true, margin: '-50px' })
 
     return (
-        <div ref={ref} style={{ width, position: 'relative', overflow: 'hidden' }} className={className}>
+        <div ref={ref} style={{ width, position: 'relative' }} className={className}>
             <motion.div
                 variants={variants[variant]}
                 initial="hidden"

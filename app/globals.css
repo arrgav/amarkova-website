@@ -130,3 +130,33 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Floating animations for background blobs */
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(20px, -20px) scale(1.02);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.98);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-30px, 30px) scale(1.05);
+  }
+}
+
+.floating-blob {
+  animation: float 20s ease-in-out infinite;
+}
+
+.floating-blob-slow {
+  animation: floatSlow 30s ease-in-out infinite;
+}

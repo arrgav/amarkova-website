@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Heart, Award, Users, Clock, Plane, Trophy } from 'lucide-react'
+import { Heart, Award, Users, Clock, Plane, Trophy, Mic } from 'lucide-react'
 import ScrollReveal from '@/components/ui/scroll-reveal'
 import GlassCard from '@/components/glass-card'
 import Counter from '@/components/counter'
@@ -29,8 +29,11 @@ export default function AboutContent() {
           </ScrollReveal>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mt-12">
-            <ScrollReveal delay={0.1} variant="scale">
-              <div className="relative aspect-square max-w-md mx-auto rounded-3xl overflow-hidden shadow-xl">
+            <ScrollReveal delay={0.1} variant="scale" width="100%">
+              <div
+                className="relative w-full max-w-md mx-auto rounded-3xl overflow-hidden shadow-xl"
+                style={{ paddingBottom: '100%' }}
+              >
                 <Image
                   src="/hero-photo.jpg"
                   alt="Анастасия Маркова"
@@ -111,6 +114,20 @@ export default function AboutContent() {
                   <p className="text-gray-600">
                     Активный образ жизни помогает сохранять энергию и ясность мышления.
                     Теннис — мой способ перезагрузки и поддержания формы.
+                  </p>
+                </div>
+              </GlassCard>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2}>
+              <GlassCard className="flex items-start gap-4 h-full">
+                <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0">
+                  <Mic className="text-white" size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Стендап комедия</h3>
+                  <p className="text-gray-600">
+                    Юмор — мой способ коммуникации. Выступаю на открытых микрофонах и верю, что смех лечит.
                   </p>
                 </div>
               </GlassCard>

@@ -11,7 +11,6 @@ const navLinks = [
   { href: '/about', label: 'Обо мне' },
   { href: '/education', label: 'Обучение' },
   { href: '/services', label: 'Услуги' },
-  { href: '/services', label: 'Услуги' },
   { href: '/blog', label: 'Блог' },
   { href: '/podcast', label: 'Подкаст' },
   { href: '/contacts', label: 'Контакты' },
@@ -37,7 +36,8 @@ export default function Header() {
             <Image
               src="/logo.png"
               alt="Анастасия Маркова"
-              fill
+              width={40}
+              height={40}
               className="object-contain"
               priority
             />

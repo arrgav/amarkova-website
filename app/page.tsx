@@ -46,6 +46,9 @@ export default function HomePage() {
         <div className="relative max-w-[1200px] mx-auto px-4 pt-24 pb-16 grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <ScrollReveal variant="slide-in-right" className="z-10">
+            <p className="text-lg font-medium text-violet-600 mb-2">
+              Добро пожаловать
+            </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
               <span className="gradient-text">Анастасия Маркова</span>
             </h1>
@@ -78,8 +81,11 @@ export default function HomePage() {
           </ScrollReveal>
 
           {/* Hero Image */}
-          <ScrollReveal variant="scale" delay={0.4} className="relative z-10">
-            <div className="relative aspect-[3/4] max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl">
+          <ScrollReveal variant="scale" delay={0.4} width="100%" className="relative z-10 w-full">
+            <div
+              className="relative w-full max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl"
+              style={{ paddingBottom: '133.33%' }}
+            >
               <Image
                 src="/hero-photo.jpg"
                 alt="Анастасия Маркова — врач-ортодонт"
@@ -88,7 +94,7 @@ export default function HomePage() {
                 priority
               />
             </div>
-            {/* Floating glass card */}
+            {/* Floating glass card moved out of ScrollReveal if needed or wrapped differently */}
             <div className="absolute -bottom-6 -left-6 glass-card rounded-2xl p-4 max-w-[200px]">
               <p className="text-3xl font-bold gradient-text">10+</p>
               <p className="text-sm text-gray-600">лет опыта</p>
@@ -135,14 +141,9 @@ export default function HomePage() {
       <section className="py-20 bg-white/30 backdrop-blur-sm">
         <div className="max-w-[1200px] mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <ScrollReveal variant="slide-in-right">
+            <ScrollReveal variant="slide-in-right" width="100%">
               <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl mb-6 transform rotate-2 hover:rotate-0 transition-transform duration-500">
-                <Image
-                  src="/standup.jpg" // Placeholder
-                  alt="Standup & Lifestyle"
-                  fill
-                  className="object-cover"
-                />
+                <div className="absolute inset-0 bg-gradient-to-br from-violet-400 via-fuchsia-400 to-orange-300" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
                   <p className="text-white font-bold text-xl">Стендап & Теннис 🎾🎤</p>
                 </div>

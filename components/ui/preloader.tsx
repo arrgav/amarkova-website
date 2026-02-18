@@ -10,7 +10,7 @@ export default function Preloader() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoading(false)
-        }, 2000) // Show preloader for 2 seconds
+        }, 1500)
 
         return () => clearTimeout(timer)
     }, [])
@@ -30,15 +30,20 @@ export default function Preloader() {
                         transition={{ duration: 0.5, ease: 'easeOut' }}
                         className="relative w-32 h-32 flex flex-col items-center gap-4"
                     >
-                        <div className="relative w-24 h-24">
+                        <motion.div
+                            animate={{ scale: [1, 1.05, 1] }}
+                            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+                            className="relative w-24 h-24"
+                        >
                             <Image
                                 src="/logo.png"
                                 alt="Anastasia Markova"
-                                fill
+                                width={96}
+                                height={96}
                                 className="object-contain"
                                 priority
                             />
-                        </div>
+                        </motion.div>
                         <motion.div
                             className="h-1 w-32 bg-gray-100 rounded-full overflow-hidden"
                         >
