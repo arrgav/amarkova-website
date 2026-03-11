@@ -20,9 +20,9 @@ const speakerFormats = [
 ]
 
 const partners = [
-  { name: 'American Orthodontics', logo: '/partners/american-orthodontics.png', width: 200, height: 80 },
-  { name: 'EuroKappa', logo: '/partners/eurokappa.png', width: 160, height: 60 },
-  { name: 'Andrews Brackets', logo: '/partners/andrews-brackets.png', width: 180, height: 70 },
+  { name: 'American Orthodontics Russia', logo: '/partners/ao-russia.png', width: 180, height: 80 },
+  { name: '6Elements Orthodontic Science', logo: '/partners/6elements.png', width: 160, height: 70 },
+  { name: 'Andrews Appliance System SL', logo: '/partners/andrews-sl.png', width: 180, height: 70 },
   { name: 'Orthoplus', logo: '/partners/orthoplus.png', width: 180, height: 70 },
 ]
 
@@ -112,10 +112,15 @@ export default function EducationContent() {
           {/* Partners */}
           <ScrollReveal delay={0.1}>
             <div className="flex flex-wrap items-center justify-center gap-12 mb-16">
-              {partners.map((partner) => (
-                <div
+              {partners.map((partner, index) => (
+                <motion.div
                   key={partner.name}
-                  className="relative grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: index * 0.15, duration: 0.5 }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 1.05 }}
+                  className="relative cursor-pointer grayscale hover:grayscale-0 transition-all duration-500 opacity-70 hover:opacity-100 hover:drop-shadow-lg"
                   style={{ width: partner.width, height: partner.height }}
                 >
                   <img
@@ -123,7 +128,7 @@ export default function EducationContent() {
                     alt={partner.name}
                     className="object-contain w-full h-full"
                   />
-                </div>
+                </motion.div>
               ))}
             </div>
           </ScrollReveal>

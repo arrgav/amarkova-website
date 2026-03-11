@@ -11,22 +11,22 @@ const articles = [
     {
         id: 1,
         type: 'article',
-        title: 'Как выбрать ортодонта?',
-        desc: '5 ключевых вопросов, которые стоит задать врачу на первой консультации.',
-        date: '15 Фев 2026',
+        title: 'Нейросети в ортодонтии: может ли ИИ проверить прикус дома',
+        desc: 'Современные технологии ИИ всё активнее внедряются в ортодонтию — от диагностики заболеваний до планирования лечения. Может ли нейросеть помочь оценить прикус дома?',
+        date: '5 Ноя 2025',
         readTime: '5 мин',
-        link: '#',
-        image: '/blog/article-1.jpg' // Placeholder
+        link: 'https://riamo.ru/news/zdravoohranenie/nejroseti-v-ortodontii-mozhet-li-ii-proverit-prikus-doma/',
+        source: 'РИАМО',
     },
     {
         id: 2,
         type: 'article',
-        title: 'Брекеты или элайнеры: что лучше?',
-        desc: 'Разбираем плюсы и минусы двух самых популярных методов лечения.',
-        date: '10 Фев 2026',
-        readTime: '7 мин',
-        link: '#',
-        image: '/blog/article-2.jpg'
+        title: 'Доктор Маркова объяснила, может ли ИИ проверить прикус дома',
+        desc: 'При хорошем качестве фото и корректном запросе ИИ может определить асимметрию, скученность зубов и признаки неправильного прикуса.',
+        date: '5 Ноя 2025',
+        readTime: '3 мин',
+        link: 'https://spbdnevnik.ru/news/2025-11-05/doktor-markova-obyasnila-mozhet-li-ii-proverit-prikus-doma',
+        source: 'СПб Дневник',
     }
 ]
 
@@ -79,28 +79,35 @@ export default function BlogContent() {
                     <div className="grid md:grid-cols-2 gap-8">
                         {articles.map((article, index) => (
                             <ScrollReveal key={article.id} delay={index * 0.1} className="h-full">
-                                <GlassCard className="h-full flex flex-col group cursor-pointer" hover>
-                                    <div className="h-48 rounded-xl bg-gray-200 mb-4 overflow-hidden relative">
-                                        {/* Placeholder for image */}
-                                        <div className="absolute inset-0 bg-gradient-to-tr from-violet-100 to-orange-50 flex items-center justify-center text-gray-400">
-                                            <FileText size={48} opacity={0.5} />
+                                <a href={article.link} target="_blank" rel="noopener noreferrer" className="block h-full">
+                                    <GlassCard className="h-full flex flex-col group cursor-pointer" hover>
+                                        <div className="h-36 rounded-xl mb-4 overflow-hidden relative bg-gradient-to-tr from-violet-100 to-orange-50 flex items-center justify-center">
+                                            <span className="px-4 py-2 bg-white/80 backdrop-blur rounded-full text-sm font-medium text-gray-700 shadow-sm">
+                                                {'source' in article ? (article as any).source : 'Статья'}
+                                            </span>
                                         </div>
-                                    </div>
-                                    <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
-                                        <span>{article.date}</span>
-                                        <span>•</span>
-                                        <span>{article.readTime}</span>
-                                    </div>
-                                    <h3 className="text-xl font-bold mb-2 group-hover:text-violet-600 transition-colors">
-                                        {article.title}
-                                    </h3>
-                                    <p className="text-gray-600 mb-4 flex-grow">
-                                        {article.desc}
-                                    </p>
-                                    <div className="flex items-center text-violet-600 font-medium mt-auto">
-                                        Читать далее <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                                    </div>
-                                </GlassCard>
+                                        <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                                            <span>{article.date}</span>
+                                            <span>•</span>
+                                            <span>{article.readTime}</span>
+                                            {'source' in article && (
+                                                <>
+                                                    <span>•</span>
+                                                    <span className="text-violet-600 font-medium">{(article as any).source}</span>
+                                                </>
+                                            )}
+                                        </div>
+                                        <h3 className="text-xl font-bold mb-2 group-hover:text-violet-600 transition-colors">
+                                            {article.title}
+                                        </h3>
+                                        <p className="text-gray-600 mb-4 flex-grow">
+                                            {article.desc}
+                                        </p>
+                                        <div className="flex items-center text-violet-600 font-medium mt-auto">
+                                            Читать далее <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                                        </div>
+                                    </GlassCard>
+                                </a>
                             </ScrollReveal>
                         ))}
                     </div>

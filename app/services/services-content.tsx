@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Stethoscope, Sparkles, Baby, Users2, ArrowRight, CheckCircle2, Send, GraduationCap, Mic2, Presentation } from 'lucide-react'
+import { Stethoscope, Sparkles, Baby, Users2, ArrowRight, CheckCircle2, Send, GraduationCap, Mic2, Presentation, Flame } from 'lucide-react'
 import ScrollReveal from '@/components/ui/scroll-reveal'
 import GlassCard from '@/components/glass-card'
 import Link from 'next/link'
@@ -21,7 +21,7 @@ const patientServices = [
   {
     icon: Sparkles,
     title: 'Элайнеры',
-    desc: 'Исправление прикуса прозрачными каппами (Invisalign, EuroKappa)',
+    desc: 'Исправление прикуса прозрачными каппами (EuroKappa и др.)',
   },
   {
     icon: Baby,
@@ -48,6 +48,12 @@ const doctorServices = [
     title: 'Наставничество',
     desc: 'Индивдуальный разбор клинических случаев (Mentoring)',
     link: '/education'
+  },
+  {
+    icon: Flame,
+    title: 'Курс по выгоранию',
+    desc: 'Личный онлайн курс по профилактике профессионального выгорания для врачей. Скоро!',
+    link: '#'
   },
 ]
 
@@ -151,7 +157,7 @@ export default function ServicesContent() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="grid sm:grid-cols-3 gap-8 mb-16">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
                   {doctorServices.map((service, index) => (
                     <ScrollReveal key={service.title} delay={index * 0.1} className="h-full">
                       <GlassCard className="h-full flex flex-col">

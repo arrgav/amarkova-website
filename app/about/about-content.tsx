@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Heart, Award, Users, Clock, Plane, Trophy, Mic } from 'lucide-react'
+import { Heart, Award, Users, Clock, Plane, Trophy, Mic, Headphones } from 'lucide-react'
 import ScrollReveal from '@/components/ui/scroll-reveal'
 import GlassCard from '@/components/glass-card'
 import Counter from '@/components/counter'
@@ -31,8 +31,8 @@ export default function AboutContent() {
           <div className="grid lg:grid-cols-2 gap-12 items-center mt-12">
             <ScrollReveal delay={0.1} variant="scale" width="100%">
               <div
-                className="relative w-full max-w-md mx-auto rounded-3xl overflow-hidden shadow-xl"
-                style={{ paddingBottom: '100%' }}
+                className="relative w-full rounded-3xl overflow-hidden shadow-xl"
+                style={{ paddingBottom: '66.67%' }}
               >
                 <Image
                   src="/hero-photo.jpg"
@@ -69,7 +69,7 @@ export default function AboutContent() {
         <div className="max-w-[1200px] mx-auto px-4">
           <ScrollReveal width="100%">
             <h2 className="text-3xl font-bold text-center mb-12">
-              В <span className="gradient-text">цифрах</span>
+              2025 в <span className="gradient-text">цифрах</span>
             </h2>
           </ScrollReveal>
 
@@ -133,7 +133,7 @@ export default function AboutContent() {
               </GlassCard>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.2}>
+            <ScrollReveal delay={0.3}>
               <GlassCard className="flex items-start gap-4 h-full">
                 <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0">
                   <Plane className="text-white" size={24} />
@@ -143,6 +143,21 @@ export default function AboutContent() {
                   <p className="text-gray-600">
                     Познаю мир и вдохновляюсь новыми культурами. Каждое путешествие —
                     это новый взгляд на жизнь и профессию.
+                  </p>
+                </div>
+              </GlassCard>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.4}>
+              <GlassCard className="flex items-start gap-4 h-full">
+                <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0">
+                  <Headphones className="text-white" size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Подкаст КНАМСС</h3>
+                  <p className="text-gray-600">
+                    Веду стоматологический подкаст КНАМСС совместно с другими врачами.
+                    Обсуждаем профессию, карьеру и жизнь в медицине.
                   </p>
                 </div>
               </GlassCard>

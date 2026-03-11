@@ -42,7 +42,6 @@ export default function Header() {
               priority
             />
           </div>
-          <span className="hidden sm:block font-semibold gradient-text">A.Markova</span>
         </Link>
 
         {/* Desktop Nav */}

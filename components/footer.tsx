@@ -20,7 +20,7 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-              <span className="text-xl font-bold gradient-text">Anastasia Markova</span>
+              <span className="text-xl font-bold gradient-text">Анастасия Маркова</span>
             </div>
             <p className="text-gray-600 text-sm">
               Врач-ортодонт · Спикер · Преподаватель РУДН

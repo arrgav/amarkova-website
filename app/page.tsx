@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Users, GraduationCap, Mic, Stethoscope } from 'lucide-react'
+import { ArrowRight, Users, GraduationCap, Mic, Stethoscope, BookOpen, Headphones } from 'lucide-react'
 import ScrollReveal from '@/components/ui/scroll-reveal'
 import GlassCard from '@/components/glass-card'
 
@@ -29,11 +29,11 @@ const directions = [
     cta: 'Узнать о курсах',
   },
   {
-    icon: Users,
-    title: 'Подкаст и медиа',
-    desc: 'Веду подкаст о стоматологии, карьере и жизни. Выступаю на конференциях и в СМИ.',
-    link: '/podcast',
-    cta: 'Слушать подкаст',
+    icon: BookOpen,
+    title: 'Обучение',
+    desc: 'Регулярно повышаю квалификацию, прохожу курсы ведущих мировых экспертов в области ортодонтии.',
+    link: '/education',
+    cta: 'Смотреть курсы',
   },
 ]
 
@@ -151,7 +151,7 @@ export default function HomePage() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-6">
-                  <p className="text-white font-bold text-xl drop-shadow-lg">Стендап & Теннис 🎾🎤</p>
+                  <p className="text-white font-bold text-xl drop-shadow-lg">Стендап & Теннис</p>
                 </div>
               </div>
             </ScrollReveal>
@@ -166,16 +166,22 @@ export default function HomePage() {
               </p>
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-violet-100 flex items-center justify-center text-violet-600">
+                  <div className="w-10 h-10 rounded-full bg-violet-100 flex items-center justify-center text-violet-600 shrink-0">
                     <Mic size={20} />
                   </div>
                   <p className="text-gray-600"><span className="font-semibold text-gray-900">Стендап:</span> Юмор помогает находить общий язык с кем угодно.</p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600">
-                    <div className="w-5 h-5 rounded-full border-2 border-current" />
+                  <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 shrink-0">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg>
                   </div>
                   <p className="text-gray-600"><span className="font-semibold text-gray-900">Теннис:</span> Спорт учит фокусироваться на цели и побеждать.</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 shrink-0">
+                    <Headphones size={20} />
+                  </div>
+                  <p className="text-gray-600"><span className="font-semibold text-gray-900">Подкаст и медиа:</span> Веду стоматологический подкаст КНАМСС совместно с коллегами-врачами.</p>
                 </div>
               </div>
               <Link
