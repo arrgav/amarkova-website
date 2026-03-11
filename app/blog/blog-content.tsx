@@ -56,10 +56,10 @@ export default function BlogContent() {
             <section className="relative py-16 overflow-hidden">
                 <div className="relative max-w-[1200px] mx-auto px-4 text-center">
                     <ScrollReveal width="100%">
-                        <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
                             Блог и <span className="gradient-text">Медиа</span>
                         </h1>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                        <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
                             Статьи, видео и заметки о профессии, лечении и жизни
                         </p>
                     </ScrollReveal>

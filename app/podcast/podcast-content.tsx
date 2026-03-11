@@ -17,10 +17,10 @@ export default function PodcastContent() {
               <div className="w-20 h-20 rounded-3xl gradient-bg flex items-center justify-center mx-auto mb-6">
                 <Mic className="text-white" size={40} />
               </div>
-              <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
                 <span className="gradient-text">Подкаст</span>
               </h1>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
                 Честные разговоры о стоматологии, карьере врача, балансе работы и жизни
               </p>
             </div>

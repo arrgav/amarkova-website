@@ -46,36 +46,36 @@ export default function HomePage() {
         <div className="relative max-w-[1200px] mx-auto px-4 pt-24 pb-16 grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <ScrollReveal variant="slide-in-right" className="z-10">
-            <p className="text-lg font-medium text-violet-600 mb-2">
+            <p className="text-base sm:text-lg font-medium text-violet-600 mb-2">
               Добро пожаловать
             </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4">
               <span className="gradient-text">Анастасия Маркова</span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-600 mb-3">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-2 sm:mb-3">
               Врач-ортодонт · Спикер · Преподаватель РУДН
             </p>
-            <p className="text-xl sm:text-2xl text-gray-800 mb-8 leading-relaxed">
-              Создаю улыбки, которые меняют жизнь.<br />
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-800 mb-6 sm:mb-8 leading-relaxed">
+              Создаю улыбки, которые меняют жизнь.<br className="hidden sm:block" />
               <span className="text-violet-600">Делюсь знаниями</span>, которые меняют профессию.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link
                 href="https://t.me/ortho_amarkova"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-button px-8 py-4 rounded-full text-lg font-medium inline-flex items-center justify-center gap-2"
+                className="glass-button px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-medium inline-flex items-center justify-center gap-2"
               >
-                Для пациентов <ArrowRight size={20} />
+                Для пациентов <ArrowRight size={18} />
               </Link>
               <Link
                 href="https://t.me/drmarkovaa"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-button-outline px-8 py-4 rounded-full text-lg font-medium inline-flex items-center justify-center gap-2"
+                className="glass-button-outline px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-medium inline-flex items-center justify-center gap-2"
               >
-                Для коллег <ArrowRight size={20} />
+                Для коллег <ArrowRight size={18} />
               </Link>
             </div>
           </ScrollReveal>
