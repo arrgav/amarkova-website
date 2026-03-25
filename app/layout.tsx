@@ -12,8 +12,6 @@ import JsonLd from '@/components/json-ld'
 const inter = Inter({ subsets: ['latin', 'cyrillic'], variable: '--font-inter' })
 const playfair = Playfair_Display({ subsets: ['latin', 'cyrillic'], variable: '--font-playfair' })
 
-export const dynamic = 'force-dynamic'
-
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXTAUTH_URL || 'https://amarkova.ru'),
   title: 'Анастасия Маркова — врач-ортодонт, спикер, преподаватель РУДН | Москва',

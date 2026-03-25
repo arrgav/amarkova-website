@@ -1,113 +1,226 @@
 'use client'
 
-import { Send, Mail, Youtube, MessageCircle, ArrowRight } from 'lucide-react'
+import { Send, Mail, Youtube, MessageCircle, Stethoscope, GraduationCap, Briefcase, ArrowRight, Clock } from 'lucide-react'
 import ScrollReveal from '@/components/ui/scroll-reveal'
 import GlassCard from '@/components/glass-card'
 
-const contacts = [
-  {
-    icon: Send,
-    title: 'Telegram канал',
-    value: '@drmarkovaa',
-    href: 'https://t.me/drmarkovaa',
-    desc: 'Для записи и вопросов',
-  },
-  {
-    icon: MessageCircle,
-    title: 'Личный Telegram',
-    value: '@drmarkova_a',
-    href: 'https://t.me/drmarkova_a',
-    desc: 'Для сотрудничества',
-  },
-  {
-    icon: Mail,
-    title: 'Email',
-    value: 'hello@amarkova.ru',
-    href: 'mailto:hello@amarkova.ru',
-    desc: 'Деловые предложения',
-  },
-  {
-    icon: Youtube,
-    title: 'YouTube',
-    value: '@knamss',
-    href: 'https://www.youtube.com/@knamss',
-    desc: 'Подкаст и видео',
-  },
-]
+function ResponseBadge({ text }: { text: string }) {
+  return (
+    <span className="inline-flex items-center gap-1.5 text-xs font-medium text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full mt-3">
+      <Clock size={12} />
+      {text}
+    </span>
+  )
+}
+
+function ContactCard({
+  icon: Icon,
+  title,
+  value,
+  href,
+  desc,
+  accent = 'violet',
+}: {
+  icon: React.ElementType
+  title: string
+  value: string
+  href: string
+  desc: string
+  accent?: 'orange' | 'violet' | 'pink'
+}) {
+  const iconBg =
+    accent === 'orange'
+      ? 'bg-gradient-to-br from-orange-400 to-yellow-400'
+      : accent === 'pink'
+      ? 'bg-gradient-to-br from-pink-500 to-rose-400'
+      : 'bg-gradient-to-br from-violet-500 to-purple-600'
+
+  const valueColor =
+    accent === 'orange'
+      ? 'text-orange-600'
+      : accent === 'pink'
+      ? 'text-pink-600'
+      : 'text-violet-600'
+
+  return (
+    <a
+      href={href}
+      target={href.startsWith('http') || href.startsWith('mailto') ? '_blank' : '_self'}
+      rel="noopener noreferrer"
+      className="block"
+    >
+      <GlassCard className="h-full group hover:shadow-lg transition-shadow">
+        <div className="flex items-start gap-4">
+          <div className={`w-11 h-11 rounded-xl ${iconBg} flex items-center justify-center shrink-0`}>
+            <Icon className="text-white" size={22} />
+          </div>
+          <div>
+            <h4 className="font-semibold text-gray-700 mb-0.5">{title}</h4>
+            <p className={`font-bold mb-1 group-hover:underline ${valueColor}`}>{value}</p>
+            <p className="text-gray-500 text-sm">{desc}</p>
+          </div>
+        </div>
+      </GlassCard>
+    </a>
+  )
+}
 
 export default function ContactsContent() {
   return (
     <div className="min-h-screen pt-24">
-      {/* Hero */}
-      <section className="relative py-16 overflow-hidden">
-        {/* Decorative elements handled by OrganicBackground */}
 
+      {/* ── Hero ─────────────────────────────────────────── */}
+      <section className="relative py-16 overflow-hidden">
         <div className="relative max-w-[1200px] mx-auto px-4 text-center">
           <ScrollReveal width="100%">
             <h1 className="text-4xl sm:text-5xl font-bold mb-4">
               Связаться <span className="gradient-text">со мной</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Для записи на консультацию, приглашения на мероприятие или сотрудничества
+              Выберите свой запрос — у каждой аудитории свой канал
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Contacts Grid */}
-      <section className="py-20 section-light">
-        <div className="max-w-[1200px] mx-auto px-4">
-          <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {contacts.map((contact, index) => (
-              <ScrollReveal key={contact.title} delay={index * 0.1}>
-                <a
-                  href={contact.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                >
-                  <GlassCard className="h-full">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0">
-                        <contact.icon className="text-white" size={24} />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-800 mb-1">{contact.title}</h3>
-                        <p className="text-violet-600 font-medium mb-1">{contact.value}</p>
-                        <p className="text-gray-500 text-sm">{contact.desc}</p>
-                      </div>
-                    </div>
-                  </GlassCard>
-                </a>
-              </ScrollReveal>
-            ))}
-          </div>
+      {/* ── Audience Sections ────────────────────────────── */}
+      <section className="py-16 section-light">
+        <div className="max-w-[1200px] mx-auto px-4 space-y-10">
+
+          {/* ─ 1. Пациентам ─ */}
+          <ScrollReveal width="100%">
+            <div className="rounded-3xl border border-orange-200 bg-gradient-to-br from-orange-50/80 to-white/80 backdrop-blur p-8">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-400 to-yellow-400 flex items-center justify-center shrink-0 shadow-md">
+                  <Stethoscope className="text-white" size={28} />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900">Пациентам</h2>
+                  <p className="text-gray-600 mt-1 max-w-xl">
+                    Запись на первичную консультацию, вопросы о лечении, стоимость приёма
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4 max-w-xl">
+                <ContactCard
+                  icon={Send}
+                  title="Telegram"
+                  value="@ortho_amarkova"
+                  href="https://t.me/ortho_amarkova"
+                  desc="Запись на консультацию"
+                  accent="orange"
+                />
+              </div>
+
+              <ResponseBadge text="Ответ в течение дня" />
+            </div>
+          </ScrollReveal>
+
+          {/* ─ 2. Врачам и коллегам ─ */}
+          <ScrollReveal width="100%" delay={0.1}>
+            <div className="rounded-3xl border border-violet-200 bg-gradient-to-br from-violet-50/80 to-white/80 backdrop-blur p-8">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center shrink-0 shadow-md">
+                  <GraduationCap className="text-white" size={28} />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900">Врачам и коллегам</h2>
+                  <p className="text-gray-600 mt-1 max-w-xl">
+                    Менторство по элайнерам, участие в курсах, профессиональное общение
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4 max-w-xl">
+                <ContactCard
+                  icon={Send}
+                  title="Telegram"
+                  value="@drmarkovaa"
+                  href="https://t.me/drmarkovaa"
+                  desc="Вопросы и менторство"
+                  accent="violet"
+                />
+              </div>
+
+              <ResponseBadge text="Ответ в течение дня" />
+            </div>
+          </ScrollReveal>
+
+          {/* ─ 3. Брендам и партнёрам ─ */}
+          <ScrollReveal width="100%" delay={0.2}>
+            <div className="rounded-3xl border border-pink-200 bg-gradient-to-br from-pink-50/80 to-white/80 backdrop-blur p-8">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-400 flex items-center justify-center shrink-0 shadow-md">
+                  <Briefcase className="text-white" size={28} />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900">Брендам и партнёрам</h2>
+                  <p className="text-gray-600 mt-1 max-w-xl">
+                    Амбассадорство, спикерство, образовательные мероприятия, медиа-партнёрство
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4">
+                <ContactCard
+                  icon={Mail}
+                  title="Email"
+                  value="hello@amarkova.ru"
+                  href="mailto:hello@amarkova.ru"
+                  desc="Деловые предложения"
+                  accent="pink"
+                />
+                <ContactCard
+                  icon={MessageCircle}
+                  title="Личный Telegram"
+                  value="@drmarkova_a"
+                  href="https://t.me/drmarkova_a"
+                  desc="Для оперативной связи"
+                  accent="pink"
+                />
+              </div>
+
+              <ResponseBadge text="Ответ в течение 24 часов" />
+            </div>
+          </ScrollReveal>
+
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20">
+      {/* ── YouTube ───────────────────────────────────────── */}
+      <section className="py-16">
         <div className="max-w-[1200px] mx-auto px-4">
-          <ScrollReveal>
-            <GlassCard className="max-w-2xl mx-auto p-8 text-center">
-              <h2 className="text-2xl font-bold mb-4">
-                Самый быстрый способ связаться
-              </h2>
-              <p className="text-gray-600 mb-6">
-                Напишите мне в Telegram — отвечаю в течение дня на все сообщения
-              </p>
-              <a
-                href="https://t.me/drmarkovaa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-button px-10 py-4 rounded-full text-lg font-medium inline-flex items-center gap-2"
-              >
-                <Send size={20} /> Написать в Telegram <ArrowRight size={20} />
-              </a>
-            </GlassCard>
+          <ScrollReveal width="100%">
+            <a
+              href="https://www.youtube.com/@knamss"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block max-w-2xl mx-auto"
+            >
+              <GlassCard className="flex flex-col sm:flex-row items-center gap-6 p-8 text-center sm:text-left group hover:shadow-xl transition-shadow">
+                <div className="w-16 h-16 rounded-2xl bg-red-600 flex items-center justify-center shrink-0 shadow-md">
+                  <Youtube className="text-white" size={32} />
+                </div>
+                <div className="flex-grow">
+                  <h3 className="text-xl font-bold mb-1 group-hover:text-red-600 transition-colors">
+                    Подкаст КНАМСС
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Подписывайтесь — о жизни и профессии врача на YouTube
+                  </p>
+                  <p className="text-red-500 font-medium text-sm mt-1">@knamss</p>
+                </div>
+                <ArrowRight
+                  size={20}
+                  className="text-gray-400 group-hover:text-red-500 group-hover:translate-x-1 transition-all shrink-0 hidden sm:block"
+                />
+              </GlassCard>
+            </a>
           </ScrollReveal>
         </div>
       </section>
+
     </div>
   )
 }
