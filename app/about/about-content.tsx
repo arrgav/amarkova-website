@@ -75,7 +75,7 @@ export default function AboutContent() {
       <section className="relative py-16 overflow-hidden">
         <div className="relative max-w-[1200px] mx-auto px-4">
           <ScrollReveal width="100%">
-            <h1 className="text-4xl sm:text-5xl font-bold text-center mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4">
               Больше, чем <span className="gradient-text">ортодонт</span>
             </h1>
           </ScrollReveal>
@@ -102,10 +102,9 @@ export default function AboutContent() {
                   <span className="font-semibold text-violet-600">10+ летним опытом</span>,
                   преподаватель кафедры ортодонтии РУДН, спикер и амбассадор ведущих стоматологических брендов.
                 </p>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
                   Моя миссия — не просто исправлять прикус, а дарить людям уверенность через красивую улыбку.
                   Являюсь наставником для специалистов, которые только начинают свой путь в работе с элайнерами.
-                  Делюсь знаниями с коллегами и студентами, развиваю профессию и вдохновляю.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
                   Вне клиники я{' '}

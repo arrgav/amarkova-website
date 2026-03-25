@@ -73,7 +73,7 @@ export default function ContactsContent() {
       <section className="relative py-16 overflow-hidden">
         <div className="relative max-w-[1200px] mx-auto px-4 text-center">
           <ScrollReveal width="100%">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
               Связаться <span className="gradient-text">со мной</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">

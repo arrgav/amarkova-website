@@ -37,10 +37,9 @@ const speakerFormats = [
 ]
 
 const partners = [
-  { name: 'American Orthodontics Russia', logo: '/partners/ao-russia.png', width: 180, height: 80 },
-  { name: '6Elements Orthodontic Science', logo: '/partners/6elements.png', width: 160, height: 70 },
-  { name: 'Andrews Appliance System SL', logo: '/partners/andrews-sl.png', width: 180, height: 70 },
-  { name: 'Orthoplus', logo: '/partners/orthoplus.png', width: 180, height: 70 },
+  { name: 'American Orthodontics Russia', logo: '/partners/ao-russia.png' },
+  { name: '6Elements Orthodontic Science', logo: '/partners/6elements.png' },
+  { name: 'Andrews Appliance System SL', logo: '/partners/andrews-sl.png' },
 ]
 
 const eurokappaCourses = [
@@ -124,7 +123,7 @@ export default function EducationContent() {
       <section className="relative py-16 overflow-hidden">
         <div className="relative max-w-[1200px] mx-auto px-4 text-center">
           <ScrollReveal width="100%">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
               Обучение и <span className="gradient-text">Спикерство</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -411,10 +410,9 @@ export default function EducationContent() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.15, duration: 0.5 }}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 1.05 }}
-                  className="relative cursor-pointer grayscale hover:grayscale-0 transition-all duration-500 opacity-70 hover:opacity-100 hover:drop-shadow-lg"
-                  style={{ width: partner.width, height: partner.height }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 1.02 }}
+                  className="relative cursor-pointer grayscale hover:grayscale-0 transition-all duration-500 opacity-80 hover:opacity-100 hover:drop-shadow-lg w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48"
                 >
                   <img
                     src={partner.logo}
