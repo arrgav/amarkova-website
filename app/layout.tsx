@@ -84,7 +84,7 @@ export const metadata: Metadata = {
     canonical: 'https://amarkova.ru',
   },
   verification: {
-    yandex: 'pending',
+    yandex: 'e8fcf894eea1e93a',
   },
 }
 
