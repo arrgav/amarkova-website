@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Youtube, FileText, ArrowRight, Play, Mic } from 'lucide-react'
+import { Youtube, FileText, ArrowRight, Mic, ExternalLink } from 'lucide-react'
 import ScrollReveal from '@/components/ui/scroll-reveal'
 import GlassCard from '@/components/glass-card'
 import Link from 'next/link'
@@ -17,6 +17,7 @@ const articles = [
     source: 'РИАМО',
     external: true,
     soon: false,
+    tag: 'СМИ',
   },
   {
     id: 2,
@@ -28,20 +29,58 @@ const articles = [
     source: 'СПб Дневник',
     external: true,
     soon: false,
+    tag: 'СМИ',
   },
   {
     id: 3,
-    title: 'Элайнеры или брекеты: как выбрать метод лечения?',
-    desc: 'Разбираю главные различия двух методов, показания и противопоказания с точки зрения практикующего ортодонта.',
+    title: 'Консультация ортодонта: что происходит на первом приёме',
+    desc: 'Что включает первичная консультация: диагностика прикуса, фотопротокол, план лечения. Как подготовиться и сколько стоит.',
     date: 'Авторская статья',
     readTime: '7 мин',
-    link: '/blog',
+    link: '/blog/konsultaciya-ortodonta',
     source: 'Блог',
     external: false,
-    soon: true,
+    soon: false,
+    tag: 'Пациентам',
   },
   {
     id: 4,
+    title: 'Брекет-системы: какие бывают, сколько стоят и как выбрать',
+    desc: 'Металлические, керамические, сапфировые — сравниваю виды брекетов, объясняю разницу и помогаю выбрать подходящий вариант.',
+    date: 'Авторская статья',
+    readTime: '9 мин',
+    link: '/blog/breketsy',
+    source: 'Блог',
+    external: false,
+    soon: false,
+    tag: 'Пациентам',
+  },
+  {
+    id: 5,
+    title: 'Элайнеры: всё, что нужно знать перед началом лечения',
+    desc: 'Как работают прозрачные капы, кому подходят, сколько стоят — честный разбор от официального спикера EuroKappa с 200+ кейсами.',
+    date: 'Авторская статья',
+    readTime: '10 мин',
+    link: '/blog/elainery',
+    source: 'Блог',
+    external: false,
+    soon: false,
+    tag: 'Пациентам',
+  },
+  {
+    id: 6,
+    title: 'Детская ортодонтия: когда начинать и что нужно знать родителям',
+    desc: 'Когда первый раз к ортодонту, как работают трейнеры и пластинки, стоит ли лечить молочные зубы — разбираю главные вопросы родителей.',
+    date: 'Авторская статья',
+    readTime: '8 мин',
+    link: '/blog/detskaya-ortodontiya',
+    source: 'Блог',
+    external: false,
+    soon: false,
+    tag: 'Родителям',
+  },
+  {
+    id: 7,
     title: 'Профессиональное выгорание у врачей: как я с этим справляюсь',
     desc: 'Честный разговор о выгорании в медицине. Мои инструменты для сохранения любви к профессии.',
     date: 'Авторская статья',
@@ -50,9 +89,10 @@ const articles = [
     source: 'Блог',
     external: false,
     soon: true,
+    tag: 'Врачам',
   },
   {
-    id: 5,
+    id: 8,
     title: 'Как начать работать с элайнерами: путь от «0» до уверенной практики',
     desc: 'Личный опыт освоения элайнерной практики и советы для врачей, которые делают первые шаги.',
     date: 'Авторская статья',
@@ -61,25 +101,35 @@ const articles = [
     source: 'Блог',
     external: false,
     soon: true,
+    tag: 'Врачам',
   },
 ]
 
-const videos = [
+const youtubeChannels = [
   {
-    id: 1,
-    title: 'Мой путь в ортодонтии',
-    platform: 'YouTube',
-    link: 'https://www.youtube.com/@knamss',
-    gradient: 'from-violet-500 to-orange-400',
+    handle: '@drmarkova_a',
+    name: 'Анастасия Маркова',
+    description: 'Образовательный контент об ортодонтии, клинические разборы, выступления на конференциях',
+    url: 'https://www.youtube.com/@drmarkova_a',
+    gradient: 'from-violet-500 to-purple-600',
+    tag: 'Профессиональный канал',
   },
   {
-    id: 2,
-    title: 'Интервью для телеканала «Доктор»',
-    platform: 'ТВ',
-    link: '/blog',
+    handle: '@knamss',
+    name: 'Подкаст КНАМСС',
+    description: 'Честные разговоры о профессии врача, карьере, выгорании и жизни в медицине. Анастасия — ведущая',
+    url: 'https://www.youtube.com/@knamss',
     gradient: 'from-orange-400 to-pink-500',
+    tag: 'Подкаст',
   },
 ]
+
+const tagColors: Record<string, string> = {
+  'СМИ': 'bg-blue-100 text-blue-700',
+  'Пациентам': 'bg-violet-100 text-violet-700',
+  'Родителям': 'bg-orange-100 text-orange-700',
+  'Врачам': 'bg-green-100 text-green-700',
+}
 
 function ArticleCard({ article, index }: { article: typeof articles[0]; index: number }) {
   const inner = (
@@ -89,23 +139,25 @@ function ArticleCard({ article, index }: { article: typeof articles[0]; index: n
           Скоро
         </span>
       )}
+      {article.external && (
+        <span className="absolute top-4 right-4 text-gray-400">
+          <ExternalLink size={14} />
+        </span>
+      )}
       <div className="h-28 rounded-xl mb-4 overflow-hidden relative bg-gradient-to-tr from-violet-100 to-orange-50 flex items-center justify-center">
         <span className="px-4 py-2 bg-white/80 backdrop-blur rounded-full text-sm font-medium text-gray-700 shadow-sm">
           {article.source}
         </span>
       </div>
-      <div className="flex items-center gap-3 text-sm text-gray-500 mb-3 flex-wrap">
-        <span>{article.date}</span>
-        <span>•</span>
-        <span>{article.readTime}</span>
-        {!article.soon && (
-          <>
-            <span>•</span>
-            <span className="text-violet-600 font-medium">{article.source}</span>
-          </>
-        )}
+      <div className="flex items-center gap-2 mb-3 flex-wrap">
+        <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${tagColors[article.tag] ?? 'bg-gray-100 text-gray-600'}`}>
+          {article.tag}
+        </span>
+        <span className="text-xs text-gray-400">{article.date}</span>
+        <span className="text-xs text-gray-400">·</span>
+        <span className="text-xs text-gray-400">{article.readTime}</span>
       </div>
-      <h3 className="text-lg font-bold mb-2 group-hover:text-violet-600 transition-colors pr-8">
+      <h3 className="text-lg font-bold mb-2 group-hover:text-violet-600 transition-colors pr-6 leading-snug">
         {article.title}
       </h3>
       <p className="text-gray-600 mb-4 flex-grow text-sm leading-relaxed">
@@ -125,11 +177,17 @@ function ArticleCard({ article, index }: { article: typeof articles[0]; index: n
   )
 
   return (
-    <ScrollReveal key={article.id} delay={index * 0.1} className="h-full">
-      {article.external ? (
-        <a href={article.link} target="_blank" rel="noopener noreferrer" className="block h-full">
-          {inner}
-        </a>
+    <ScrollReveal key={article.id} delay={index * 0.07} className="h-full">
+      {!article.soon ? (
+        article.external ? (
+          <a href={article.link} target="_blank" rel="noopener noreferrer" className="block h-full">
+            {inner}
+          </a>
+        ) : (
+          <Link href={article.link} className="block h-full">
+            {inner}
+          </Link>
+        )
       ) : (
         <div className="h-full">{inner}</div>
       )}
@@ -173,68 +231,89 @@ export default function BlogContent() {
         </div>
       </section>
 
-      {/* ── Video Content ─────────────────────────────────── */}
+      {/* ── YouTube Channels ──────────────────────────────── */}
       <section className="py-20">
         <div className="max-w-[1200px] mx-auto px-4">
           <ScrollReveal width="100%" className="mb-10">
             <h2 className="text-2xl font-bold flex items-center gap-2">
               <Youtube className="text-red-600" />
-              Видео и выступления
+              YouTube-каналы
             </h2>
+            <p className="text-gray-500 mt-2 text-base">
+              Смотрите выступления, клинические разборы и подкаст на YouTube
+            </p>
           </ScrollReveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* YouTube channel card */}
-            <ScrollReveal className="lg:col-span-1">
-              <GlassCard className="h-full flex flex-col justify-center items-center text-center p-8 bg-gradient-to-br from-red-50 to-white">
-                <Youtube size={56} className="text-red-600 mb-5" />
-                <h3 className="text-xl font-bold mb-2">Подкаст КНАМСС</h3>
-                <p className="text-gray-600 mb-6 text-sm">
-                  О жизни и профессии врача — подкаст на YouTube
-                </p>
+          <div className="grid sm:grid-cols-2 gap-6 mb-12">
+            {youtubeChannels.map((channel, index) => (
+              <ScrollReveal key={channel.handle} delay={index * 0.1}>
                 <a
-                  href="https://www.youtube.com/@knamss"
+                  href={channel.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="glass-button px-6 py-3 rounded-full text-sm font-medium inline-flex items-center gap-2"
+                  className="block group"
                 >
-                  Подписаться
-                </a>
-              </GlassCard>
-            </ScrollReveal>
-
-            {/* Video placeholders */}
-            {videos.map((video, index) => (
-              <ScrollReveal key={video.id} delay={0.1 + index * 0.1} className="h-full">
-                <a
-                  href={video.link}
-                  target={video.link.startsWith('http') ? '_blank' : '_self'}
-                  rel="noopener noreferrer"
-                  className="block h-full"
-                >
-                  <GlassCard className="h-full group cursor-pointer" hover>
-                    {/* Gradient thumbnail */}
-                    <div className={`aspect-video rounded-xl mb-4 relative overflow-hidden bg-gradient-to-br ${video.gradient} flex items-center justify-center`}>
-                      <motion.div
-                        whileHover={{ scale: 1.15 }}
-                        className="w-16 h-16 rounded-full bg-white/25 backdrop-blur flex items-center justify-center shadow-lg"
-                      >
-                        <Play size={32} className="text-white translate-x-0.5" />
-                      </motion.div>
+                  <GlassCard className="h-full hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${channel.gradient} flex items-center justify-center shrink-0 shadow-md`}>
+                        <Youtube className="text-white" size={28} />
+                      </div>
+                      <div>
+                        <span className="inline-block text-xs font-semibold bg-red-100 text-red-700 px-2.5 py-1 rounded-full mb-1">
+                          {channel.tag}
+                        </span>
+                        <h3 className="text-xl font-bold text-gray-900 group-hover:text-red-600 transition-colors leading-tight">
+                          {channel.name}
+                        </h3>
+                        <p className="text-sm text-gray-500">{channel.handle}</p>
+                      </div>
                     </div>
-                    <h3 className="font-bold text-lg mb-1 group-hover:text-violet-600 transition-colors">
-                      {video.title}
-                    </h3>
-                    <p className="text-sm text-gray-500">{video.platform}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-5">
+                      {channel.description}
+                    </p>
+                    <div className="flex items-center text-red-500 font-medium text-sm group-hover:gap-3 gap-2 transition-all">
+                      Перейти на канал <ArrowRight size={16} />
+                    </div>
                   </GlassCard>
                 </a>
               </ScrollReveal>
             ))}
           </div>
+
+          {/* YouTube embed placeholder for latest video */}
+          <ScrollReveal width="100%">
+            <div className="rounded-3xl border border-red-100 bg-gradient-to-br from-red-50/60 to-white/80 p-8 text-center">
+              <div className="w-16 h-16 rounded-2xl bg-red-600 flex items-center justify-center mx-auto mb-4 shadow-md">
+                <Youtube className="text-white" size={32} />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Смотрите новые видео</h3>
+              <p className="text-gray-600 mb-6 max-w-md mx-auto text-sm">
+                Выступления на конференциях, разборы клинических случаев, подкаст КНАМСС о жизни врача — подписывайтесь, чтобы не пропустить новые выпуски.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a
+                  href="https://www.youtube.com/@drmarkova_a"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glass-button px-6 py-3 rounded-full text-sm font-medium inline-flex items-center gap-2"
+                >
+                  <Youtube size={16} /> @drmarkova_a
+                </a>
+                <a
+                  href="https://www.youtube.com/@knamss"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glass-button-outline px-6 py-3 rounded-full text-sm font-medium inline-flex items-center gap-2"
+                >
+                  <Youtube size={16} /> @knamss
+                </a>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* ── TikTok / Short Videos ─────────────────────────── */}
+      {/* ── Short Videos ────────────────────────────────── */}
       <section className="py-12 section-light">
         <div className="max-w-[1200px] mx-auto px-4">
           <ScrollReveal width="100%">

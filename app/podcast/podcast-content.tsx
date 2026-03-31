@@ -41,7 +41,7 @@ export default function PodcastContent() {
                 rel="noopener noreferrer"
                 className="glass-button px-10 py-4 rounded-full text-lg font-medium inline-flex items-center gap-3"
               >
-                <Youtube size={24} /> Смотреть на YouTube
+                <Youtube size={24} /> Смотреть
               </a>
             </GlassCard>
           </ScrollReveal>

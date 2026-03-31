@@ -42,7 +42,7 @@ export default function Footer() {
               className="flex items-center gap-2 text-gray-600 hover:text-violet-600 text-sm transition-colors"
             >
               <Send size={18} />
-              <span>Telegram канал</span>
+              <span>Канал</span>
             </a>
             <a
               href="https://t.me/drmarkova_a"
@@ -51,7 +51,7 @@ export default function Footer() {
               className="flex items-center gap-2 text-gray-600 hover:text-violet-600 text-sm transition-colors"
             >
               <Send size={18} />
-              <span>Личный Telegram</span>
+              <span>Мессенджер</span>
             </a>
             <a
               href="https://www.youtube.com/@knamss"
@@ -60,7 +60,7 @@ export default function Footer() {
               className="flex items-center gap-2 text-gray-600 hover:text-violet-600 text-sm transition-colors"
             >
               <Youtube size={18} />
-              <span>YouTube</span>
+              <span>Видеоканал</span>
             </a>
             <a
               href="mailto:hello@amarkova.ru"

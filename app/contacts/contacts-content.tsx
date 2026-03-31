@@ -1,6 +1,6 @@
 'use client'
 
-import { Send, Mail, Youtube, MessageCircle, Stethoscope, GraduationCap, Briefcase, ArrowRight, Clock } from 'lucide-react'
+import { Send, Mail, Youtube, MessageCircle, Stethoscope, GraduationCap, Briefcase, ArrowRight, Clock, MapPin, Phone, ExternalLink } from 'lucide-react'
 import ScrollReveal from '@/components/ui/scroll-reveal'
 import GlassCard from '@/components/glass-card'
 
@@ -188,8 +188,96 @@ export default function ContactsContent() {
         </div>
       </section>
 
-      {/* ── YouTube ───────────────────────────────────────── */}
+      {/* ── Clinics ───────────────────────────────────────── */}
       <section className="py-16">
+        <div className="max-w-[1200px] mx-auto px-4">
+          <ScrollReveal width="100%" className="mb-8">
+            <h2 className="text-2xl font-bold text-center">
+              Где я <span className="gradient-text">принимаю</span>
+            </h2>
+            <p className="text-gray-500 text-center mt-2">Клиники в Москве</p>
+          </ScrollReveal>
+
+          <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {/* Queen Nella */}
+            <ScrollReveal delay={0}>
+              <GlassCard className="h-full">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center shrink-0 shadow-md">
+                    <Stethoscope className="text-white" size={22} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900">Queen Nella</h3>
+                    <p className="text-sm text-gray-500">Стоматологическая клиника</p>
+                  </div>
+                </div>
+                <div className="space-y-2 mb-5">
+                  <div className="flex items-start gap-2 text-sm text-gray-600">
+                    <MapPin size={15} className="text-violet-500 shrink-0 mt-0.5" />
+                    <span>Москва, Чапаевский пер., 3</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <Phone size={15} className="text-violet-500 shrink-0" />
+                    <a href="tel:+74951010222" className="hover:text-violet-700 transition-colors">
+                      +7 (495) 101-02-22
+                    </a>
+                  </div>
+                </div>
+                <a
+                  href="https://queennella.ru"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm text-violet-600 font-medium hover:text-violet-800 transition-colors"
+                >
+                  queennella.ru <ExternalLink size={13} />
+                </a>
+              </GlassCard>
+            </ScrollReveal>
+
+            {/* Queen Nella Kids */}
+            <ScrollReveal delay={0.1}>
+              <GlassCard className="h-full">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center shrink-0 shadow-md">
+                    <Stethoscope className="text-white" size={22} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900">Queen Nella Kids</h3>
+                    <p className="text-sm text-gray-500">Детская стоматология и ортодонтия</p>
+                  </div>
+                </div>
+                <div className="space-y-2 mb-5">
+                  <div className="flex items-start gap-2 text-sm text-gray-600">
+                    <MapPin size={15} className="text-orange-500 shrink-0 mt-0.5" />
+                    <span>Москва, Чапаевский пер., 3</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <Phone size={15} className="text-orange-500 shrink-0" />
+                    <a href="tel:+74951822522" className="hover:text-orange-700 transition-colors">
+                      +7 (495) 182-25-22
+                    </a>
+                  </div>
+                  <div className="flex items-start gap-2 text-xs text-gray-400">
+                    <Clock size={13} className="shrink-0 mt-0.5" />
+                    <span>Пн–Чт: 10:00–20:00, Пт: 10:00–18:00</span>
+                  </div>
+                </div>
+                <a
+                  href="https://kids.queennella.ru"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm text-orange-600 font-medium hover:text-orange-800 transition-colors"
+                >
+                  kids.queennella.ru <ExternalLink size={13} />
+                </a>
+              </GlassCard>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── YouTube ───────────────────────────────────────── */}
+      <section className="py-8 pb-16">
         <div className="max-w-[1200px] mx-auto px-4">
           <ScrollReveal width="100%">
             <a

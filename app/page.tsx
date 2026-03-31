@@ -475,7 +475,7 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   className="w-full glass-button px-6 py-3 rounded-full font-medium inline-flex items-center justify-center gap-2 text-sm"
                 >
-                  Записаться в Telegram <ArrowRight size={16} />
+                  Записаться <ArrowRight size={16} />
                 </a>
               </div>
             </ScrollReveal>
