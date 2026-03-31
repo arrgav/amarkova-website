@@ -1,8 +1,9 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import {
   ArrowRight,
   GraduationCap,
@@ -12,7 +13,47 @@ import {
   Headphones,
   Briefcase,
   Star,
+  X,
+  Clock,
+  Smile,
+  Award,
 } from 'lucide-react'
+
+const heroStatDetails: Record<string, { title: string; icon: any; description: string; highlights: string[] }> = {
+  'experience': {
+    title: '10+ лет опыта',
+    icon: Clock,
+    description: 'С 2014 года помогаю пациентам обрести красивую улыбку. За это время прошла путь от начинающего ортодонта до спикера и преподавателя РУДН.',
+    highlights: [
+      'Более 919 часов приёма в 2025 году',
+      'Преподаватель кафедры ортодонтии РУДН',
+      'Постоянное повышение квалификации',
+      'Участие в международных конференциях',
+    ],
+  },
+  'aligners': {
+    title: '200+ кейсов элайнеров',
+    icon: Smile,
+    description: 'Специализируюсь на лечении элайнерами — прозрачными капами для исправления прикуса. Это современный и комфортный метод, который я освоила на экспертном уровне.',
+    highlights: [
+      'Сертифицированный специалист по элайнерам',
+      'Наставник для врачей, начинающих работу с элайнерами',
+      'Работа с ведущими системами элайнеров',
+      'Комплексные и сложные случаи',
+    ],
+  },
+  'brands': {
+    title: '5+ брендов-партнёров',
+    icon: Award,
+    description: 'Являюсь официальным спикером и амбассадором ведущих ортодонтических брендов. Провожу обучающие мероприятия для врачей по всей России.',
+    highlights: [
+      'American Orthodontics Russia',
+      '6Elements Orthodontic Science',
+      'Andrews Appliance System SL',
+      'Спикер на конференциях и мастер-классах',
+    ],
+  },
+}
 import ScrollReveal from '@/components/ui/scroll-reveal'
 import GlassCard from '@/components/glass-card'
 import Counter from '@/components/counter'
@@ -142,9 +183,65 @@ function StarRating({ count }: { count: number }) {
   )
 }
 
+function StatPopup({ statKey, onClose }: { statKey: string; onClose: () => void }) {
+  const detail = heroStatDetails[statKey]
+  if (!detail) return null
+  const Icon = detail.icon
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+        transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+        className="relative bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+        >
+          <X size={16} className="text-gray-500" />
+        </button>
+
+        <div className="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center mb-5">
+          <Icon className="text-white" size={28} />
+        </div>
+
+        <h3 className="text-2xl font-bold mb-3">{detail.title}</h3>
+        <p className="text-gray-600 leading-relaxed mb-6">{detail.description}</p>
+
+        <div className="space-y-3">
+          {detail.highlights.map((item, i) => (
+            <div key={i} className="flex items-start gap-3">
+              <div className="w-2 h-2 rounded-full gradient-bg mt-2 shrink-0" />
+              <span className="text-gray-700">{item}</span>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
 export default function HomePage() {
+  const [activePopup, setActivePopup] = useState<string | null>(null)
+
   return (
     <div className="min-h-screen">
+      <AnimatePresence>
+        {activePopup && (
+          <StatPopup statKey={activePopup} onClose={() => setActivePopup(null)} />
+        )}
+      </AnimatePresence>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="relative max-w-[1200px] mx-auto px-4 pt-24 pb-16 grid lg:grid-cols-2 gap-12 items-center">
@@ -201,7 +298,10 @@ export default function HomePage() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
-              className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 glass-card rounded-2xl p-3 sm:p-4 shadow-xl"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setActivePopup('experience')}
+              className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 glass-card rounded-2xl p-3 sm:p-4 shadow-xl cursor-pointer hover:shadow-2xl transition-shadow"
             >
               <p className="text-2xl sm:text-3xl font-bold gradient-text">10+</p>
               <p className="text-xs sm:text-sm text-gray-600">лет опыта</p>
@@ -212,7 +312,10 @@ export default function HomePage() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.0, duration: 0.5 }}
-              className="absolute -top-4 -right-4 sm:-top-4 sm:-right-4 glass-card rounded-2xl p-3 sm:p-4 shadow-xl"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setActivePopup('aligners')}
+              className="absolute -top-4 -right-4 sm:-top-4 sm:-right-4 glass-card rounded-2xl p-3 sm:p-4 shadow-xl cursor-pointer hover:shadow-2xl transition-shadow"
             >
               <p className="text-2xl sm:text-3xl font-bold gradient-text">200+</p>
               <p className="text-xs sm:text-sm text-gray-600">кейсов элайнеров</p>
@@ -223,7 +326,10 @@ export default function HomePage() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.2, duration: 0.5 }}
-              className="absolute top-1/2 -right-4 sm:-right-6 -translate-y-1/2 glass-card rounded-2xl p-3 sm:p-4 shadow-xl"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setActivePopup('brands')}
+              className="absolute top-1/2 -right-4 sm:-right-6 -translate-y-1/2 glass-card rounded-2xl p-3 sm:p-4 shadow-xl cursor-pointer hover:shadow-2xl transition-shadow"
             >
               <p className="text-2xl sm:text-3xl font-bold gradient-text">5+</p>
               <p className="text-xs sm:text-sm text-gray-600">брендов</p>
