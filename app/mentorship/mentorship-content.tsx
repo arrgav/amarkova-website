@@ -133,7 +133,7 @@ export default function MentorshipContent() {
 
             {/* CTA */}
             <a
-              href="https://t.me/drmarkovaa"
+              href="https://t.me/drmarkova_assist"
               target="_blank"
               rel="noopener noreferrer"
               className="glass-button px-10 py-4 rounded-full text-lg font-medium inline-flex items-center gap-2"
@@ -206,7 +206,7 @@ export default function MentorshipContent() {
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{format.title}</h3>
                   <p className="text-gray-600 flex-1 mb-6">{format.description}</p>
                   <a
-                    href="https://t.me/drmarkovaa"
+                    href="https://t.me/drmarkova_assist"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all ${
@@ -375,7 +375,7 @@ export default function MentorshipContent() {
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="https://t.me/drmarkovaa"
+                  href="https://t.me/drmarkova_assist"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glass-button px-10 py-4 rounded-full text-lg font-medium inline-flex items-center gap-2"

@@ -105,10 +105,18 @@ export default function ContactsContent() {
               <div className="grid sm:grid-cols-2 gap-4 max-w-xl">
                 <ContactCard
                   icon={Send}
-                  title="Telegram"
-                  value="@ortho_amarkova"
-                  href="https://t.me/ortho_amarkova"
-                  desc="Запись на консультацию"
+                  title="Запись на консультацию"
+                  value="@drmarkova_assist"
+                  href="https://t.me/drmarkova_assist"
+                  desc="Написать в Telegram"
+                  accent="orange"
+                />
+                <ContactCard
+                  icon={MessageCircle}
+                  title="Телеграм канал"
+                  value="Доктор в Балансе"
+                  href="https://t.me/drmarkovaa"
+                  desc="Полезный контент и новости"
                   accent="orange"
                 />
               </div>
@@ -135,10 +143,18 @@ export default function ContactsContent() {
               <div className="grid sm:grid-cols-2 gap-4 max-w-xl">
                 <ContactCard
                   icon={Send}
-                  title="Telegram"
-                  value="@drmarkovaa"
+                  title="Вопросы и менторство"
+                  value="@drmarkova_assist"
+                  href="https://t.me/drmarkova_assist"
+                  desc="Написать в Telegram"
+                  accent="violet"
+                />
+                <ContactCard
+                  icon={MessageCircle}
+                  title="Телеграм канал"
+                  value="Доктор в Балансе"
                   href="https://t.me/drmarkovaa"
-                  desc="Вопросы и менторство"
+                  desc="Полезный контент и новости"
                   accent="violet"
                 />
               </div>
@@ -162,21 +178,13 @@ export default function ContactsContent() {
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4 max-w-xl">
                 <ContactCard
-                  icon={Mail}
-                  title="Email"
-                  value="hello@amarkova.ru"
-                  href="mailto:hello@amarkova.ru"
-                  desc="Деловые предложения"
-                  accent="pink"
-                />
-                <ContactCard
-                  icon={MessageCircle}
+                  icon={Send}
                   title="Личный Telegram"
-                  value="@drmarkova_a"
-                  href="https://t.me/drmarkova_a"
-                  desc="Для оперативной связи"
+                  value="@drmarkova_assist"
+                  href="https://t.me/drmarkova_assist"
+                  desc="Для деловых предложений"
                   accent="pink"
                 />
               </div>

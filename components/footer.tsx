@@ -45,7 +45,7 @@ export default function Footer() {
               <span>Канал</span>
             </a>
             <a
-              href="https://t.me/drmarkova_a"
+              href="https://t.me/drmarkova_assist"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-600 hover:text-violet-600 text-sm transition-colors"

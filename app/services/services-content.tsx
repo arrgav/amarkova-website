@@ -289,7 +289,7 @@ function ServiceCard({ service, index }: { service: typeof patientServices[0]; i
           </div>
 
           <a
-            href="https://t.me/ortho_amarkova"
+            href="https://t.me/drmarkova_assist"
             target="_blank"
             rel="noopener noreferrer"
             className="glass-button w-full py-3 rounded-full text-base font-medium flex items-center justify-center gap-2 mt-2"
@@ -484,7 +484,7 @@ export default function ServicesContent() {
                       Первичная консультация — это уже первый шаг к красивой улыбке. Напишите мне в Telegram, и мы подберём удобное время.
                     </p>
                     <a
-                      href="https://t.me/ortho_amarkova"
+                      href="https://t.me/drmarkova_assist"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="glass-button px-8 py-4 rounded-full text-lg font-medium inline-flex items-center gap-2"
@@ -651,7 +651,7 @@ export default function ServicesContent() {
                         <ArrowRight size={20} /> hello@amarkova.ru
                       </a>
                       <a
-                        href="https://t.me/drmarkova_a"
+                        href="https://t.me/drmarkova_assist"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="glass-button-outline px-8 py-4 rounded-full text-lg font-medium inline-flex items-center gap-2"

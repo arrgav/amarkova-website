@@ -86,7 +86,7 @@ export default function Header() {
               </Link>
             ))}
             <a
-              href="https://t.me/ortho_amarkova"
+              href="https://t.me/drmarkova_assist"
               target="_blank"
               rel="noopener noreferrer"
               className="glass-button px-5 py-2.5 rounded-full text-sm font-medium"
@@ -130,7 +130,7 @@ export default function Header() {
                   </Link>
                 ))}
                 <a
-                  href="https://t.me/ortho_amarkova"
+                  href="https://t.me/drmarkova_assist"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glass-button px-5 py-3 rounded-full text-sm font-medium text-center mt-3"

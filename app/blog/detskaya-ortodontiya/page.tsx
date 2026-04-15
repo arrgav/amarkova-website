@@ -191,7 +191,7 @@ export default function DetskayaOrtodontiyaPage() {
             Принимаю детей от 3 лет в клинике Queen Nella Kids (Москва). На консультации честно скажу: нужно ли лечение сейчас, или стоит понаблюдать.
           </p>
           <a
-            href="https://t.me/ortho_amarkova"
+            href="https://t.me/drmarkova_assist"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-700 text-white font-semibold px-6 py-3 rounded-full transition-colors"

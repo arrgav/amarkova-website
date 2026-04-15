@@ -56,7 +56,7 @@ export default function JsonLd() {
         knowsLanguage: ['ru', 'en'],
         sameAs: [
             'https://t.me/drmarkovaa',
-            'https://t.me/drmarkova_a',
+            'https://t.me/drmarkova_assist',
             'https://www.youtube.com/@knamss',
             'https://academy.eurokappa.ru/speakers/anastasiya-markova/',
             'https://prodoctorov.ru/moskva/vrach/997675-markova/',
@@ -114,7 +114,7 @@ export default function JsonLd() {
         contactPoint: {
             '@type': 'ContactPoint',
             contactType: 'customer service',
-            url: 'https://t.me/ortho_amarkova',
+            url: 'https://t.me/drmarkova_assist',
         },
     }
 

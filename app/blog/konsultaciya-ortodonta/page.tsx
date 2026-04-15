@@ -184,7 +184,7 @@ export default function KonsultaciyaOrtodontaPage() {
             Принимаю пациентов в клиниках Queen Nella и Queen Nella Kids (Москва). Напишите нам — подберём удобное время.
           </p>
           <a
-            href="https://t.me/ortho_amarkova"
+            href="https://t.me/drmarkova_assist"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-700 text-white font-semibold px-6 py-3 rounded-full transition-colors"

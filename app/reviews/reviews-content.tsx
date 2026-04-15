@@ -304,7 +304,7 @@ export default function ReviewsContent() {
                     Запишитесь на консультацию к Анастасии Марковой в Москве
                   </p>
                   <a
-                    href="https://t.me/amarkova_ortho"
+                    href="https://t.me/drmarkova_assist"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="glass-button w-full text-center py-3 rounded-xl font-medium"
@@ -325,7 +325,7 @@ export default function ReviewsContent() {
                     Курсы и менторство по элайнерам для врачей
                   </p>
                   <a
-                    href="https://t.me/amarkova_edu"
+                    href="https://t.me/drmarkova_assist"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="glass-button-outline w-full text-center py-3 rounded-xl font-medium"

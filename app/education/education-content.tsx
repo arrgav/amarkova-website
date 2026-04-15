@@ -354,7 +354,7 @@ export default function EducationContent() {
           <ScrollReveal delay={0.3} width="100%">
             <div className="text-center">
               <a
-                href="https://t.me/drmarkovaa"
+                href="https://t.me/drmarkova_assist"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-button px-10 py-4 rounded-full text-lg font-medium inline-flex items-center gap-2"
@@ -527,7 +527,7 @@ export default function EducationContent() {
                 <GraduationCap size={20} /> Записаться на курс
               </a>
               <a
-                href="https://t.me/drmarkovaa"
+                href="https://t.me/drmarkova_assist"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-button-outline px-8 py-4 rounded-full text-base font-medium inline-flex items-center justify-center gap-2"

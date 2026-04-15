@@ -222,7 +222,7 @@ export default function BreketsyPage() {
             На первичной консультации я оцениваю клинический случай и честно рекомендую оптимальный метод — брекеты, элайнеры или их сочетание.
           </p>
           <a
-            href="https://t.me/ortho_amarkova"
+            href="https://t.me/drmarkova_assist"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-700 text-white font-semibold px-6 py-3 rounded-full transition-colors"
