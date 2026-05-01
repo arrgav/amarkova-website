@@ -31,3 +31,32 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Зависимости
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Сборка
+dist/
+build/
+
+# Логи
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Переменные окружения
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Кэши
+.cache/
+.vite/
